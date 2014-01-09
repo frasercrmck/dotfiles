@@ -62,6 +62,10 @@ bindkey -M vicmd '^u' vi-kill-line
 bindkey -M viins '^k' kill-line
 bindkey -M vicmd '^k' kill-line
 
+bindkey -M viins '^a' vi-beginning-of-line
+bindkey -M viins '^e' vi-end-of-line
+
+
 # Change XTERM title
 case $TERM in
     xterm*)
