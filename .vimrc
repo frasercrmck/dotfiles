@@ -125,6 +125,10 @@ nnoremap : ;
 " Search for word under cursor, but don't jump
 nnoremap <Leader>* *''
 
+" Bash-style Ctrl-A/E mappings to jump to Home/End in Insert mode.
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
 " Escape search highlighing with \\
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
