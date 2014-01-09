@@ -141,9 +141,6 @@ nnoremap <silent> [q :cprev<CR>
 nnoremap <silent> ]Q :clast<CR>
 nnoremap <silent> [Q :cfirst<CR>
 
-" Open Url on this line with the browser \w
-map <Leader>w :call Browser ()<CR>
-
 " Edit vimrc \ev
 nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
 
@@ -171,19 +168,12 @@ nnoremap J mzJ`z
 map N Nzz
 map n nzz
 
-" Testing
 set completeopt=longest,menuone,preview
-
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-inoremap <expr> <c-n> pumvisible() ? "\<lt>c-n>" : "\<lt>c-n>\<lt>c-r>=pumvisible() ? \"\\<lt>down>\" : \"\"\<lt>cr>"
-inoremap <expr> <m-;> pumvisible() ? "\<lt>c-n>" : "\<lt>c-x>\<lt>c-o>\<lt>c-n>\<lt>c-p>\<lt>c-r>=pumvisible() ? \"\\<lt>down>\" : \"\"\<lt>cr>"
-
-" Fix email paragraphs
-nnoremap <leader>par :%s/^>$//<CR>
 
 " Unmap certain operations I accidentally hit
 nnoremap <F1> <nop>
 nnoremap <Q> <nop>
+
 "}}}
 
 "{{{Taglist Configuration
