@@ -2,9 +2,11 @@ tool-setup
 ==========
 
 YouCompleteMe
-=============
+-------------
 
-Download the latest version of libclang.
+Download the latest version of libclang. On Arch you can do:
+
+        pacman -S clang
 
 Compile the ycm_support_libs libraries that YCM needs.
 
@@ -22,11 +24,11 @@ We'll create a new folder where build files will be placed. Run the following:
         mkdir ycm_build
         cd ycm_build
         
-Now we need to generate the makefiles.
+Now we need to generate the makefiles. On Arch you can do:
 
-        cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir . ~/.vim/bundle/YouCompleteMe/cpp
+        cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/cpp
         
-For those who want to use the system version of libclang, you would pass `-DUSE_SYSTEM_LIBCLANG=ON` to cmake instead of the `-DPATH_TO_LLVM_ROOT=...` flag.
+If not using the system libclang, you would pass `--DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir` to cmake instead.
 
 Now that makefiles have been generated, simply run:
 
