@@ -80,7 +80,7 @@ set nohidden
 highlight MatchParen ctermbg=4
 
 " Needed for Syntax Highlighting and stuff
-filetype on
+" filetype on
 filetype plugin on
 syntax enable
 
@@ -187,37 +187,13 @@ nnoremap <Q> <nop>
 "}}}
 
 "{{{Taglist Configuration
+
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_SingleClick = 1
 let Tlist_Inc_Winwidth = 0
-"}}}
 
-"{{{Clang Complete Configuration
-"" Complete options (disable preview scratch window)
-set completeopt=menu,menuone,longest
-" Limit popup menu height
-set pumheight=15
- 
-highlight Pmenu ctermbg=238 gui=bold
-
-" SuperTab option for context aware completion
-let g:SuperTabDefaultCompletionType = "context"
-
-" Disable auto popup, use <Tab> to autocomplete
-let g:clang_complete_auto = 0 
-" Select first entry in popup menu but don't insert the code
-let g:clang_auto_select = 1
-" Show clang errors in the quickfix window
-" let g:clang_complete_copen = 1
-" Highlight errors and warnings
-" let g:clang_complete_hl_errors = 1
-" Update quicfix periodically
-" let g:clang_periodic_quickfix = 1
-
-let g:clang_use_library = 1
-let g:clang_library_path = "/usr/lib"
 "}}}
 
 "{{{Easy Motion Configuration
@@ -227,12 +203,19 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 "}}}
 
-"{{{ Pathogen Configuration
+"{{{ Vundle Configuration
 
-execute pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" Generate helptags for everything in 'runtimepath'
-call pathogen#helptags()
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" other bundles:
+Bundle 'scrooloose/nerdtree'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'coderifous/textobj-word-column.vim'
 
 "}}}
 
