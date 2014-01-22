@@ -41,7 +41,9 @@ set nocompatible
 
 set showcmd
 
-set foldmethod=marker
+set foldmethod=syntax
+set foldlevelstart=99
+set foldnestmax=5
 
 set autoindent
 
@@ -71,10 +73,14 @@ set wildignore=*.o,*.obj.*.exe
 
 set hlsearch
 
+set cursorline
+
 let g:clipbrdDefaultReg = '+'
 
 " When I close a tab, remove the buffer
 set nohidden
+
+set completeopt=menu,menuone,preview
 
 " Set off the other paren
 highlight MatchParen ctermbg=4
@@ -164,6 +170,9 @@ nnoremap <silent> zk O<Esc>
 " Space will toggle folds!
 nnoremap <space> za
 
+" Highlight last inserted text
+nmap gV `[v`]
+
 " Stop cursor moving when joining lines
 nnoremap J mzJ`z
 
@@ -171,8 +180,6 @@ nnoremap J mzJ`z
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
-
-set completeopt=longest,menuone,preview
 
 " Unmap certain operations I accidentally hit
 nnoremap <F1> <nop>
