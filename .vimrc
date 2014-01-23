@@ -217,6 +217,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'coderifous/textobj-word-column.vim'
+Bundle 'rking/ag.vim'
 
 "}}}
 
