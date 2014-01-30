@@ -1,7 +1,221 @@
-"{{{Auto Commands
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               Preamble                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible
+
+" Needed for Vundle, will be turned on after Vundle inits
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         Vundle Configuration                            "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" other bundles:
+Bundle 'scrooloose/nerdtree'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'coderifous/textobj-word-column.vim'
+Bundle 'rking/ag.vim'
+
+" Colour schemes:
+Bundle 'sickill/vim-monokai'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     Turn On Filetype Plugins                            "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable detection, plugins and indenting in one step
+" This needs to come AFTER the Bundle commands!
+filetype plugin indent on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         General Settings                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" LOOK AND FEEL
+colorscheme monokai            " select the 'sublime text' colour scheme
+
+set gfn=Consolas:h10
+
+set laststatus=2               " the status line is always shown
+set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+
+" highlight the 81st column of wide lines
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+endif
+
+" set tags=./tags;/
+
+" EDITOR SETTINGS
+set sessionoptions=blank,buffers,sesdir,folds,help,options,tabpages,winsize
+
+set nocompatible
+
+set showcmd                    " show typed command in status bar
+
+set foldmethod=syntax          " fold source code based on synax
+set foldlevelstart=99          " open all folds by default
+set foldnestmax=5              " limit amount of folds to 5-deep
+
+set autoindent                 " auto-indentation
+
+set expandtab                  " treat tabs as spaces
+set smarttab                   " treat tabs as spaces
+
+set backspace=indent,eol,start " allows backspacing over everything in insert mode
+set shiftwidth=2               " set tabs to 2 spaces
+set softtabstop=2              " set tabs to 2 spaces
+
+" first <Tab> tries to complete longest match.
+" second <Tab> lists possible matches
+set wildmode=longest,list   
+set wildmenu                   " completion with menu
+set wildignore=*.o,*.obj.*.exe " ignore binaries when listing files
+
+set mouse=a                    " enable mouse support
+
+set nohidden                   " when I close a tab, remove the buffer
+
+set number                     " show line numbers
+set relativenumber             " show line numbers as relative offsets
+
+set smartcase                  " match case if pattern contains upper case chars
+set ignorecase                 " case-insensitive matches
+
+set hlsearch                   " highlight all search matches
+set incsearch                  " incremental search
+
+set cursorline                 " highlight the current line
+
+set completeopt=menu,menuone   " insert-mode completion menu
+
+" Highlight matching parenthesis
+highlight MatchParen cterm=none ctermbg=green ctermfg=blue
+
+set grepprg=grep\ -nRHi\ $*    " grep command defaults
+
+set backupdir=~/.vim/backup    " move backups out of .git folders
+
+let g:clipbrdDefaultReg = '+'  " set clipboard register to '+'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               Mappings                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Exist insert mode by typing jj
+inoremap jj <Esc>
+
+" Swap ; and : since we used : more often than ;
+nnoremap ; :
+nnoremap : ;
+
+" Swap ` and ' to jump to markers
+nnoremap ' `
+nnoremap ` '
+
+" Search for word under cursor, but don't jump to it
+nnoremap <Leader>* *''
+
+" Bash-style Ctrl-A/E mappings to jump to Home/End in Insert mode.
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
+" Make Y behave like C and D
+nnoremap Y y$
+
+" QuickFix result navigating
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprev<CR>
+nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> [Q :cfirst<CR>
+
+" This makes j and k work on 'screen lines' instead of on 'file lines'; now,
+" when we have a long line that wraps to multiple lines, j and k behave as we
+" expect them to.
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+
+" Create blank newlines above or below us and stay in normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
+
+" Space toggles folds
+nnoremap <space> za
+
+" Stop the cursor moving when joining lines
+nnoremap J mzJ`z
+
+" Keep search matches in the middle of the window.
+" zz centers the screen on the cursor, zv unfolds any fold if the cursor
+" suddenly appears inside a fold
+nnoremap * Nzzzv
+nnoremap # nzzzv
+nnoremap N Nzzzv
+nnoremap n nzzzv
+
+" Using '<' and '>' in visual mode to shift code by a tab-width left/right by
+" default exits visual mode. With this mapping we remain in visual mode after
+" such an operation.
+vnoremap < <gv
+vnoremap > >gv
+
+" Highlight the last-inserted text
+nmap gV `[v`]
+
+" Edit vimrc \gv
+nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/.vimrc<CR>
+
+" Switch to the directory of the open buffer
+nnoremap <leader>cd :cd %:p:h<CR>
+
+" Escape search highlighing with \\
+nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
+
+" Unmap certain operations I accidentally hit
+nnoremap <F1> <nop>
+nnoremap <Q> <nop>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         Taglist Configuration                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let Tlist_Use_Right_Window = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_SingleClick = 1
+let Tlist_Inc_Winwidth = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Easy Motion Configuration                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set leader back to <Leader>
+let g:EasyMotion_leader_key = '<Leader>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     You Complete Me Configuration                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let g:ycm_min_num_of_chars_for_completion = 99
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         Auto Commands                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+" autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
@@ -29,199 +243,3 @@ augroup JumpCursorOnEdit
             \ endif
 augroup END
 
-"}}}
-
-"{{{Misc Settings
-
-set tags=./tags;/
-
-set sessionoptions=blank,buffers,sesdir,folds,help,options,tabpages,winsize
-
-set nocompatible
-
-set showcmd
-
-set foldmethod=syntax
-set foldlevelstart=99
-set foldnestmax=5
-
-set autoindent
-
-set expandtab
-set smarttab
-
-set shiftwidth=2
-set softtabstop=2
-
-set wildmenu
-set wildmode=longest,list
-
-set mouse=a
-
-set backspace=2
-
-set number
-set relativenumber
-
-set ignorecase
-
-set smartcase
-
-set incsearch
-
-set wildignore=*.o,*.obj.*.exe
-
-set hlsearch
-
-set cursorline
-
-let g:clipbrdDefaultReg = '+'
-
-" When I close a tab, remove the buffer
-set nohidden
-
-set completeopt=menu,menuone,preview
-
-" Set off the other paren
-highlight MatchParen ctermbg=4
-
-" Needed for Syntax Highlighting and stuff
-" filetype on
-filetype plugin on
-syntax enable
-
-set grepprg=grep\ -nRHi\ $*
-
-command! -nargs=+ -complete=file Grep execute 'silent! grep! <args>' | redraw! | copen
-
-cnoremap :grep :echo "hello"
-
-" Move backups out of .git folders
-set backupdir=~/.vim/backup
-
-" }}}
-
-"{{{Look and Feel
-"
-colors slate
-
-set gfn=Consolas:h10
-
-" Status line gnarliness
-set laststatus=2
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
-
-" Highlight the 81st column of wide lines
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-
-" }}}
-
-"{{{ Mappings
-
-" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
-inoremap jj <Esc>
-
-nnoremap JJJJ <Nop>
-
-" Swap ; and :  Convenient.
-nnoremap ; :
-nnoremap : ;
-
-" Search for word under cursor, but don't jump
-nnoremap <Leader>* *''
-
-" Bash-style Ctrl-A/E mappings to jump to Home/End in Insert mode.
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-
-" Escape search highlighing with \\
-nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
-
-" New lines
-map <C-j> O<Esc>
-map <C-k> o<Esc>
-
-" Make Y behave like C and D
-nnoremap Y y$
-
-" QuickFix result navigating
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [q :cprev<CR>
-nnoremap <silent> ]Q :clast<CR>
-nnoremap <silent> [Q :cfirst<CR>
-
-" Edit vimrc \ev
-nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
-
-" Edit gvimrc \gv
-nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/.gvimrc<CR>
-
-" Up and down are more logical with g..
-nnoremap <silent> k gk
-nnoremap <silent> j gj
-inoremap <silent> <Up> <Esc>gka
-inoremap <silent> <Down> <Esc>gja
-
-" Create Blank Newlines and stay in Normal mode
-nnoremap <silent> zj o<Esc>
-nnoremap <silent> zk O<Esc>
-
-" Space will toggle folds!
-nnoremap <space> za
-
-" Highlight last inserted text
-nmap gV `[v`]
-
-" Stop cursor moving when joining lines
-nnoremap J mzJ`z
-
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-map N Nzz
-map n nzz
-
-" Unmap certain operations I accidentally hit
-nnoremap <F1> <nop>
-nnoremap <Q> <nop>
-
-"}}}
-
-"{{{Taglist Configuration
-
-let Tlist_Use_Right_Window = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_SingleClick = 1
-let Tlist_Inc_Winwidth = 0
-
-"}}}
-
-"{{{Easy Motion Configuration
-
-" Set leader back to <Leader>
-let g:EasyMotion_leader_key = '<Leader>'
-
-"}}}
-
-"{{{ Vundle Configuration
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" other bundles:
-Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'coderifous/textobj-word-column.vim'
-Bundle 'rking/ag.vim'
-
-"}}}
-
-source ~/.vim/autotag.vim
-
-filetype plugin indent on
-syntax on
