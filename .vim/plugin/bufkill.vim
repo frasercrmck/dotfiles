@@ -235,16 +235,16 @@ if g:BufKillCreateMappings == 1
     exec 'nmap <silent> <unique> '.a:lhs.' '.a:rhs
   endfunction
 
-  call <SID>CreateUniqueMapping('<Leader>bb',   '<Plug>BufKillBack')
-  call <SID>CreateUniqueMapping('<Leader>bf',   '<Plug>BufKillForward')
-  call <SID>CreateUniqueMapping('<Leader>bun',  '<Plug>BufKillBun')
-  call <SID>CreateUniqueMapping('<Leader>!bun', '<Plug>BufKillBangBun')
-  call <SID>CreateUniqueMapping('<Leader>bd',   '<Plug>BufKillBd')
-  call <SID>CreateUniqueMapping('<Leader>!bd',  '<Plug>BufKillBangBd')
-  call <SID>CreateUniqueMapping('<Leader>bw',   '<Plug>BufKillBw')
-  call <SID>CreateUniqueMapping('<Leader>!bw',  '<Plug>BufKillBangBw')
-  call <SID>CreateUniqueMapping('<Leader>bundo','<Plug>BufKillUndo')
-  call <SID>CreateUniqueMapping('<Leader>ba',   '<Plug>BufKillAlt')
+"  call <SID>CreateUniqueMapping('<Leader>bb',   '<Plug>BufKillBack')
+"  call <SID>CreateUniqueMapping('<Leader>bf',   '<Plug>BufKillForward')
+"  call <SID>CreateUniqueMapping('<Leader>bun',  '<Plug>BufKillBun')
+"  call <SID>CreateUniqueMapping('<Leader>!bun', '<Plug>BufKillBangBun')
+"  call <SID>CreateUniqueMapping('<Leader>bd',   '<Plug>BufKillBd')
+"  call <SID>CreateUniqueMapping('<Leader>!bd',  '<Plug>BufKillBangBd')
+"  call <SID>CreateUniqueMapping('<Leader>bw',   '<Plug>BufKillBw')
+"  call <SID>CreateUniqueMapping('<Leader>!bw',  '<Plug>BufKillBangBw')
+"  call <SID>CreateUniqueMapping('<Leader>bundo','<Plug>BufKillUndo')
+"  call <SID>CreateUniqueMapping('<Leader>ba',   '<Plug>BufKillAlt')
   if g:BufKillOverrideCtrlCaret == 1
     call <SID>CreateUniqueMapping('<C-^>', '<Plug>BufKillAlt', 'AllowDuplicate')
   endif
