@@ -51,9 +51,7 @@ set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
-if &t_Co > 2 || has("gui_running")
-  syntax on
-endif
+syntax on
 
 " set tags=./tags;/
 
@@ -160,10 +158,10 @@ nnoremap J mzJ`z
 " Keep search matches in the middle of the window.
 " zz centers the screen on the cursor, zv unfolds any fold if the cursor
 " suddenly appears inside a fold
-nnoremap * Nzzzv
-nnoremap # nzzzv
-nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
 nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " Using '<' and '>' in visual mode to shift code by a tab-width left/right by
 " default exits visual mode. With this mapping we remain in visual mode after
