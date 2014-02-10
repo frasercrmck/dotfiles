@@ -213,7 +213,7 @@ let g:EasyMotion_leader_key = '<Leader>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically cd into the directory that the file is in
-" autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
