@@ -26,6 +26,7 @@ Bundle 'rking/ag.vim'
 
 " Colour schemes:
 Bundle 'sickill/vim-monokai'
+Bundle 'jnurmine/Zenburn'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Turn On Filetype Plugins                            "
@@ -38,9 +39,10 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         General Settings                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set t_Co=256
 
 " LOOK AND FEEL
-colorscheme monokai            " select the 'sublime text' colour scheme
+colorscheme zenburn            " select zenburn
 
 set gfn=Consolas:h10
 
