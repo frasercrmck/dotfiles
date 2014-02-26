@@ -77,9 +77,10 @@ set backspace=indent,eol,start " allows backspacing over everything in insert mo
 set shiftwidth=2               " set tabs to 2 spaces
 set softtabstop=2              " set tabs to 2 spaces
 
-" first <Tab> tries to complete longest match.
+" first  <Tab>  tries to complete longest match.
 " second <Tab> lists possible matches
-set wildmode=longest,list   
+" third  <Tab> completes the next full match
+set wildmode=longest,list,full
 set wildmenu                   " completion with menu
 set wildignore=*.o,*.obj.*.exe " ignore binaries when listing files
 
