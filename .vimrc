@@ -24,6 +24,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'coderifous/textobj-word-column.vim'
 Bundle 'rking/ag.vim'
 
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 " Colour schemes:
 Bundle 'sickill/vim-monokai'
 Bundle 'jnurmine/Zenburn'
@@ -47,7 +49,7 @@ colorscheme zenburn            " select zenburn
 set gfn=Consolas:h10
 
 set laststatus=2               " the status line is always shown
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 " highlight the 81st column of wide lines
 highlight ColorColumn ctermbg=magenta
@@ -137,10 +139,10 @@ inoremap <C-e> <End>
 nnoremap Y y$
 
 " QuickFix result navigating
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [q :cprev<CR>
-nnoremap <silent> ]Q :clast<CR>
-nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]q :cnext<CR>zz
+nnoremap <silent> [q :cprev<CR>zz
+nnoremap <silent> ]Q :clast<CR>zz
+nnoremap <silent> [Q :cfirst<CR>zz
 
 " This makes j and k work on 'screen lines' instead of on 'file lines'; now,
 " when we have a long line that wraps to multiple lines, j and k behave as we
@@ -188,6 +190,7 @@ nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 nnoremap <F1> <nop>
 nnoremap <Q> <nop>
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Taglist Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,7 +212,13 @@ let g:EasyMotion_leader_key = '<Leader>'
 "                     You Complete Me Configuration                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_min_num_of_chars_for_completion = 99
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      Clang Format Configuration                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map  <C-K> :pyf ~/.vim/clang-format.py<CR>
+imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Auto Commands                                   "
