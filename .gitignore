@@ -40,5 +40,6 @@ VirtualBox VMs
 .vim/bundle/
 .vim/syntax/
 .viminfo
+.vim/filetype.vim
 
 .vim/.netrwhist*
