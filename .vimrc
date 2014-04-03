@@ -117,8 +117,8 @@ let g:clipbrdDefaultReg = '+'  " set clipboard register to '+'
 "                               Mappings                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Exist insert mode by typing jj
-inoremap jj <Esc>
+" Exist insert mode by typing jk
+inoremap jk <Esc>
 
 " Swap ; and : since we used : more often than ;
 nnoremap ; :
@@ -224,8 +224,13 @@ imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 "                         Auto Commands                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
+
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+
+autocmd FocusLost * :set norelativenumber
+autocmd FocusGained * :set relativenumber
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
