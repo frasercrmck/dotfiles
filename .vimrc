@@ -214,6 +214,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 let g:ycm_min_num_of_chars_for_completion = 99
 
+let g:ycm_confirm_extra_conf = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      Clang Format Configuration                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
