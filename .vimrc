@@ -226,6 +226,9 @@ imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 "                         Auto Commands                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Search for the word under the cursor
+command! -nargs=1 Agc :Ag! <cword> <f-args>
+
 command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
 
 " Automatically cd into the directory that the file is in
