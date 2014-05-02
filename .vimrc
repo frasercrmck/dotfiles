@@ -191,6 +191,32 @@ nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 nnoremap <F1> <nop>
 nnoremap <Q> <nop>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              GUI Options                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+  " No menu or toolbar
+  set guioptions-=m
+  set guioptions-=T
+
+  " No scrollbars
+  set guioptions-=L
+  set guioptions-=l
+  set guioptions-=R
+  set guioptions-=r
+  set guioptions-=b
+
+  " No tab pages
+  set guioptions-=e
+
+  " Nice copy and paste
+  set guioptions+=p
+
+  " Don't bother me with pop ups
+  set guioptions+=c
+
+  set guifont=Inconsolata\ for\ Powerline\ 10
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Taglist Configuration                           "
