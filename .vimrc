@@ -227,7 +227,7 @@ imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Search for the word under the cursor
-command! -nargs=1 Agc :Ag! <cword> <f-args>
+command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 
 command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
 
