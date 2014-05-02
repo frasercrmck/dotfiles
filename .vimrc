@@ -23,6 +23,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'coderifous/textobj-word-column.vim'
 Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-repeat'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -230,6 +231,45 @@ imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 
 command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
+
+" Twiddlfs a coordinate char from x -> y -> z -> w -> x -> ...
+function! CoordSwizzle(argCount)
+  " Get the char under the cursor
+  let currentChar = getline(".")[col(".")-1]
+
+  " Exit early if there is no coord under the cursor
+  " Case-insensitive equality
+  if currentChar != 'x' && currentChar != 'y' && currentChar != 'z' && currentChar != 'w'
+    return
+  endif
+
+  let replaceCount = a:argCount
+  " Always swizzle at least one coord
+  if replaceCount == 0
+    let replaceCount = 1
+  endif
+
+  let startIndex = {'x': 0, 'y': 1, 'z': 2, 'w': 3}[tolower(currentChar)]
+
+  let replaceIndex = (startIndex + replaceCount % 4) % 4
+
+  let newChar = ['x', 'y', 'z', 'w'][replaceIndex]
+
+  " Convert to uppercase if char under cursor is upper case
+  if currentChar ==# toupper(currentChar)
+    let newChar = toupper(newChar)
+  endif
+
+  " Finally, replace the char
+  :exec ":normal r".newChar
+endfunction
+
+" Coordinate swizzle
+
+noremap <silent> <Plug>CoordinateSwizzle :<C-U>call CoordSwizzle(v:count)<CR>
+      \:call repeat#set("\<Plug>CoordinateSwizzle", v:count)<CR>
+
+nmap <silent> cs <Plug>CoordinateSwizzle
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
