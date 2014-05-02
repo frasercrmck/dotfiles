@@ -258,15 +258,28 @@ command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 
 command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
 
-" Twiddlfs a coordinate char from x -> y -> z -> w -> x -> ...
+" Twiddles a coordinate char from:
+"   x -> y -> z -> w -> x -> ...
+" or:
+"   r -> g -> b -> a -> r -> ...
 function! CoordSwizzle(argCount)
   " Get the char under the cursor
   let currentChar = getline(".")[col(".")-1]
 
   " Exit early if there is no coord under the cursor
   " Case-insensitive equality
-  if currentChar != 'x' && currentChar != 'y' && currentChar != 'z' && currentChar != 'w'
+  if currentChar != 'x' && currentChar != 'y' &&
+        \currentChar != 'z' && currentChar != 'w' &&
+        \currentChar != 'r' && currentChar != 'g' &&
+        \currentChar != 'b' && currentChar != 'a'
     return
+  endif
+
+  if currentChar == 'r' || currentChar == 'g' ||
+        \currentChar == 'b' || currentChar == 'a'
+    let isColour = 1
+  else
+    let isColour = 0
   endif
 
   let replaceCount = a:argCount
@@ -275,11 +288,19 @@ function! CoordSwizzle(argCount)
     let replaceCount = 1
   endif
 
-  let startIndex = {'x': 0, 'y': 1, 'z': 2, 'w': 3}[tolower(currentChar)]
+  if isColour
+    let startIndex = {'r': 0, 'g': 1, 'b': 2, 'a': 3}[tolower(currentChar)]
+  else
+    let startIndex = {'x': 0, 'y': 1, 'z': 2, 'w': 3}[tolower(currentChar)]
+  endif
 
   let replaceIndex = (startIndex + replaceCount % 4) % 4
 
-  let newChar = ['x', 'y', 'z', 'w'][replaceIndex]
+  if isColour
+    let newChar = ['r', 'g', 'b', 'a'][replaceIndex]
+  else
+    let newChar = ['x', 'y', 'z', 'w'][replaceIndex]
+  endif
 
   " Convert to uppercase if char under cursor is upper case
   if currentChar ==# toupper(currentChar)
