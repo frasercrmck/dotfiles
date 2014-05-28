@@ -21,7 +21,6 @@ Bundle 'gmarik/vundle'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -225,13 +224,6 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_SingleClick = 1
 let Tlist_Inc_Winwidth = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       Easy Motion Configuration                         "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Set leader back to <Leader>
-let g:EasyMotion_leader_key = '<Leader>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     You Complete Me Configuration                       "
