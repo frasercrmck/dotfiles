@@ -1,2 +1,5 @@
 XTerm*eightBitInput: false
 XTerm*saveLines: 4096
+
+XTerm*faceName: Source Code Pro Semibold
+XTerm*faceSize: 9
