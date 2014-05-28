@@ -18,12 +18,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " other bundles:
-Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'coderifous/textobj-word-column.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-repeat'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
