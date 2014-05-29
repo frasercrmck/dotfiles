@@ -28,6 +28,9 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'sickill/vim-monokai'
 Bundle 'jnurmine/Zenburn'
 
+" Syntax files:
+Bundle 'frasercrmck/opencl.vim'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Turn On Filetype Plugins                            "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
