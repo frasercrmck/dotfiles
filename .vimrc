@@ -181,15 +181,14 @@ nmap gV `[v`]
 " Edit vimrc \gv
 nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/.vimrc<CR>
 
-" Switch to the directory of the open buffer
-nnoremap <leader>cd :cd %:p:h<CR>
-
 " Escape search highlighing with \\
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
 " Unmap certain operations I accidentally hit
 nnoremap <F1> <nop>
 nnoremap <Q> <nop>
+
+nnoremap gc :cclose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
@@ -313,9 +312,6 @@ nmap <silent> cs <Plug>CoordinateSwizzle
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
-autocmd FocusLost * :set norelativenumber
-autocmd FocusGained * :set relativenumber
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
