@@ -22,6 +22,7 @@ Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'frasercrmck/swizzle.vim'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -238,68 +239,6 @@ imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
 " Search for the word under the cursor
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
-
-command! -range UnstringifyKernel :silent!<line1>,<line2>s!\([^\\]\|^\)\(\\n\)\?"!\1!ge|<line1>,<line2>s!\\\("\|\\\)!\1!ge
-
-" Twiddles a coordinate char from:
-"   x -> y -> z -> w -> x -> ...
-" or:
-"   r -> g -> b -> a -> r -> ...
-function! CoordSwizzle(argCount)
-  " Get the char under the cursor
-  let currentChar = getline(".")[col(".")-1]
-
-  " Exit early if there is no coord under the cursor
-  " Case-insensitive equality
-  if currentChar != 'x' && currentChar != 'y' &&
-        \currentChar != 'z' && currentChar != 'w' &&
-        \currentChar != 'r' && currentChar != 'g' &&
-        \currentChar != 'b' && currentChar != 'a'
-    return
-  endif
-
-  if currentChar == 'r' || currentChar == 'g' ||
-        \currentChar == 'b' || currentChar == 'a'
-    let isColour = 1
-  else
-    let isColour = 0
-  endif
-
-  let replaceCount = a:argCount
-  " Always swizzle at least one coord
-  if replaceCount == 0
-    let replaceCount = 1
-  endif
-
-  if isColour
-    let startIndex = {'r': 0, 'g': 1, 'b': 2, 'a': 3}[tolower(currentChar)]
-  else
-    let startIndex = {'x': 0, 'y': 1, 'z': 2, 'w': 3}[tolower(currentChar)]
-  endif
-
-  let replaceIndex = (startIndex + replaceCount % 4) % 4
-
-  if isColour
-    let newChar = ['r', 'g', 'b', 'a'][replaceIndex]
-  else
-    let newChar = ['x', 'y', 'z', 'w'][replaceIndex]
-  endif
-
-  " Convert to uppercase if char under cursor is upper case
-  if currentChar ==# toupper(currentChar)
-    let newChar = toupper(newChar)
-  endif
-
-  " Finally, replace the char
-  :exec ":normal r".newChar
-endfunction
-
-" Coordinate swizzle
-
-noremap <silent> <Plug>CoordinateSwizzle :<C-U>call CoordSwizzle(v:count)<CR>
-      \:call repeat#set("\<Plug>CoordinateSwizzle", v:count)<CR>
-
-nmap <silent> cs <Plug>CoordinateSwizzle
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
