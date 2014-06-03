@@ -20,6 +20,7 @@ Bundle 'gmarik/vundle'
 " other bundles:
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -139,21 +140,11 @@ inoremap <C-e> <End>
 " Make Y behave like C and D
 nnoremap Y y$
 
-" QuickFix result navigating
-nnoremap <silent> ]q :cnext<CR>zz
-nnoremap <silent> [q :cprev<CR>zz
-nnoremap <silent> ]Q :clast<CR>zz
-nnoremap <silent> [Q :cfirst<CR>zz
-
 " This makes j and k work on 'screen lines' instead of on 'file lines'; now,
 " when we have a long line that wraps to multiple lines, j and k behave as we
 " expect them to.
 nnoremap <silent> k gk
 nnoremap <silent> j gj
-
-" Create blank newlines above or below us and stay in normal mode
-nnoremap <silent> zj o<Esc>
-nnoremap <silent> zk O<Esc>
 
 " Space toggles folds
 nnoremap <space> za
