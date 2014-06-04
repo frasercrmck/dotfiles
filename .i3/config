@@ -30,14 +30,14 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # lock screen
-bindsym $mod+Shift+` exec i3lock
+bindsym $mod+Shift+Return exec i3lock
+
+# volume up/down
+bindsym $mod+Shift+n exec amixer set Master 4%- &
+bindsym $mod+Shift+m exec amixer set Master 4%+ &
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
