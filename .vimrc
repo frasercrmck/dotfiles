@@ -39,6 +39,7 @@ Bundle 'frasercrmck/opencl.vim'
 
 " Enable detection, plugins and indenting in one step
 " This needs to come AFTER the Bundle commands!
+call vundle#end()
 filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
