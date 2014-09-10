@@ -1,10 +1,20 @@
-tool-setup
-==========
+# tool-setup
+
+First Things First
+==================
 
 Symlink All The Things
 ----------------------
 
         ./setup.sh
+        
+Setting Up Vim
+==============
+
+Vundle
+------
+
+        ./install_vundle.sh
 
 YouCompleteMe
 -------------
