@@ -55,10 +55,6 @@ set gfn=Consolas:h10
 set laststatus=2               " the status line is always shown
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-" highlight the 81st column of wide lines
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-
 syntax on
 
 " set tags=./tags;/
