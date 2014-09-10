@@ -180,7 +180,8 @@ nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 nnoremap <F1> <nop>
 nnoremap <Q> <nop>
 
-nnoremap gc :cclose<CR>
+nnoremap <silent> gc :cclose<CR>
+nnoremap <silent> gl :lclose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
@@ -205,8 +206,6 @@ if has("gui_running")
 
   " Don't bother me with pop ups
   set guioptions+=c
-
-  set guifont=Inconsolata\ for\ Powerline\ 10
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

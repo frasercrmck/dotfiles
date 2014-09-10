@@ -18,19 +18,19 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 alias ls='ls --color=auto'
-alias grepc='grep --color -nRHi'
+alias grepc='grep --color -HinRI'
 
 # Save history across sessions
 setopt inc_append_history
 setopt share_history
 
-HISTSIZE=1000
+HISTSIZE=4000
 if (( ! EUID )); then
   HISTFILE=~/.history_root
 else
   HISTFILE=~/.history
 fi
-SAVEHIST=1000
+SAVEHIST=4000
 
 # Vim bindings
 bindkey -M viins 'jk' vi-cmd-mode
@@ -75,3 +75,7 @@ esac
 
 bindkey -v
 
+export PULSE_LATENCY_MSEC=60
+
+PERL_MB_OPT="--install_base \"/home/fraser/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/fraser/perl5"; export PERL_MM_OPT;

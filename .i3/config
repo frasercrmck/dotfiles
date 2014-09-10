@@ -77,11 +77,17 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-workspace 1  output HDMI-2
-workspace 2  output HDMI-2
-workspace 3  output HDMI-2
-workspace 4  output HDMI-2
-workspace 5  output HDMI-2
+# switch between last container
+bindsym $mod+b workspace back_and_forth
+
+bindsym $mod+u workspace prev
+bindsym $mod+i workspace next
+
+workspace 1  output VGA-2
+workspace 2  output VGA-2
+workspace 3  output VGA-2
+workspace 4  output VGA-2
+workspace 5  output VGA-2
 
 workspace 6  output DVI-I-1
 workspace 7  output DVI-I-1
@@ -94,11 +100,12 @@ assign [Class="Firefox"]     8
 assign [Class="Thunderbird"] 9
 assign [Class="Pidgin"]      10
 assign [Class="Skype"]       10
+assign [Class="HipChat"]     10
 
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
-exec --no-startup-id pidgin
 exec --no-startup-id skype
+exec --no-startup-id hipchat
 
 # pretty ugly background
 exec --no-startup-id xsetroot -solid "#7C4985"
