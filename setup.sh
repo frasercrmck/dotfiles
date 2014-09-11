@@ -12,6 +12,9 @@ ln -s .prompt ~/.prompt
 # Bash
 ln -s .bashrc ~/.bashrc
 
+# i3
+ln -s .i3 ~/.i3
+
 # X11
 ln -s .xinitrc ~/.xinitrc
 ln -s .Xresources ~/.Xresources
