@@ -1,6 +1,4 @@
-# Created by newuser for 5.0.2 autoload -U compinit promptinit compinit
 autoload -U colors && colors
-autoload -U compinit && compinit
 autoload -U promptinit && promptinit
 
 stty -ixon                # Prevent Ctrl-S from freezing
@@ -50,6 +48,19 @@ case $TERM in
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
         ;;
 esac
+
+# Completion
+# ==========
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'l:|=* r:|=*'
+zstyle :compinstall filename '/home/fraser/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 # Pulse Audio
 # -----------
