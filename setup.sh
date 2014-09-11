@@ -8,6 +8,7 @@ ln -s .vimrc ~/.vimrc
 ln -s .zshrc ~/.zshrc
 ln -s .zshenv ~/.zshenv
 ln -s .prompt ~/.prompt
+ln -s .zsh-config ~/.zsh-config
 
 # Bash
 ln -s .bashrc ~/.bashrc
