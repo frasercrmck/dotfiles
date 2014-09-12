@@ -28,7 +28,7 @@ setopt histignoredups       # Ignore consecutive dups
 setopt histfindnodups       # Backwards search produces diff result each time
 setopt histreduceblanks     # Compact consecutive white space chars
 setopt incappendhistory     # Incrementally add items to HISTFILE
-setopt share_history        # Share history between sessions
+# setopt share_history        # Share history between sessions
 
 HISTSIZE=4000
 if (( ! EUID )); then
