@@ -173,10 +173,14 @@ nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/.vimrc<CR>
 " Escape search highlighing with \\
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
-" Unmap certain operations I accidentally hit
+" Unmap certain operations I accidentally hit...
+" Help pages
 nnoremap <F1> <nop>
+" Execute mode
 nnoremap Q <nop>
 nnoremap gQ <nop>
+" Man pages
+nnoremap K <nop>
 
 nnoremap <silent> gc :cclose<CR>
 nnoremap <silent> gl :lclose<CR>
