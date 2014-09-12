@@ -175,7 +175,8 @@ nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
 " Unmap certain operations I accidentally hit
 nnoremap <F1> <nop>
-nnoremap <Q> <nop>
+nnoremap Q <nop>
+nnoremap gQ <nop>
 
 nnoremap <silent> gc :cclose<CR>
 nnoremap <silent> gl :lclose<CR>
