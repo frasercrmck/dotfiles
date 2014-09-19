@@ -236,11 +236,15 @@ noremap <C-K> :pyf ~/.vim/clang-format.py<CR>
 inoremap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         Auto Commands                                   "
+"                         Custom Commands                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Search for the word under the cursor
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         Auto Commands                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
