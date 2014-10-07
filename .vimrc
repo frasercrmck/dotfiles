@@ -29,6 +29,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Colour schemes:
 Bundle 'sickill/vim-monokai'
 Bundle 'jnurmine/Zenburn'
+Bundle 'whatyouhide/vim-gotham'
 
 " Syntax files:
 Bundle 'frasercrmck/opencl.vim'
@@ -48,7 +49,7 @@ filetype plugin indent on
 set t_Co=256
 
 " LOOK AND FEEL
-colorscheme zenburn            " select zenburn
+colorscheme gotham256          " select 256-colour gotham colourscheme
 
 set gfn=Consolas:h10
 
