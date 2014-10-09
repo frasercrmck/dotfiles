@@ -233,8 +233,8 @@ let g:ycm_confirm_extra_conf = 0
 "                      Clang Format Configuration                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <C-K> :pyf ~/.vim/clang-format.py<CR>
-inoremap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
+noremap <silent> <C-K> :pyf ~/.vim/clang-format.py<CR>
+inoremap <silent> <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
