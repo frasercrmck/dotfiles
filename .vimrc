@@ -250,6 +250,9 @@ command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
+" Automatically set the fold method to 'indent' for cmake files
+autocmd FileType cmake set foldmethod=indent
+
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
    au!
