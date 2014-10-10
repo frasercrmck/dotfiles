@@ -20,6 +20,7 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 # -------
 alias ls='ls --color=auto'
 alias grepc='grep --color -HinRI'
+alias agc='ag -S --nogroup'
 
 # History & History Expansion
 # ---------------------------
