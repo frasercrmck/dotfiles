@@ -251,6 +251,36 @@ let g:ctrlp_show_hidden = 1
 " Search for the word under the cursor
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 
+" Convert a code block into a string literal
+function! MakeStringLiteral()
+  " Escape existing escape characters
+  execute 's/\\/\\\\/ge'
+  " Escape quotes
+  execute 's/"/\\"/ge'
+  " Prepend quote
+  execute 's/^/"/ge'
+  " Add end carriage return & quote
+  execute 's/$/\\n"/ge'
+  noh
+endfunction
+
+" Unconvert a code block from a string literal
+function! UnMakeStringLiteral()
+  " Undo end carriage return & quote
+  execute 's/\\n"[^"]*$//ge'
+  " Remove beginning quote
+  execute 's/^\s*"//ge'
+  " Unescape quotes
+  execute 's/\\"/"/ge'
+  " Unescape existing escape characters
+  execute 's/\\\\/\\/ge'
+  noh
+endfunction
+
+" This overrides tpope's mappings from vim-unimpaired
+map <silent> ]y :call MakeStringLiteral()<CR>
+map <silent> [y :call UnMakeStringLiteral()<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Auto Commands                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
