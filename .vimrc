@@ -21,6 +21,7 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'frasercrmck/swizzle.vim'
 
@@ -239,6 +240,13 @@ inoremap <silent> <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn))|(build)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': '',
+      \ }
+let g:ctrlp_show_hidden = 1
 
 " Search for the word under the cursor
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
