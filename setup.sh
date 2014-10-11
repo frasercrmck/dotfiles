@@ -1,24 +1,31 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
-# Vim
-ln -s .vim ~/.vim
-ln -s .vimrc ~/.vimrc
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# ZShell
-ln -s .zshrc ~/.zshrc
-ln -s .zshenv ~/.zshenv
-ln -s .prompt ~/.prompt
-ln -s .zsh-config ~/.zsh-config
+echo script_dir
 
-# Bash
-ln -s .bashrc ~/.bashrc
+cd ~/
 
-# i3
-ln -s .i3 ~/.i3
+for file in .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
+do
+  if [ ! -f ${script_dir}/${file} ]; then
+    echo "File '${script_dir}/${file}' does not exist!"
+    continue
+  fi
+  rm ${file} 2> /dev/null
+  set -x
+  ln -s ${script_dir}/${file} ${file}
+  { set +x; } 2>/dev/null
+done
 
-# X11
-ln -s .xinitrc ~/.xinitrc
-ln -s .Xresources ~/.Xresources
-
-# YouCompleteMe
-ln -s .ycm_extra_conf.py ~/.ycm_extra_conf.py
+for dir in .i3 .vim .zsh-config
+do
+  if [ ! -d ${script_dir}/${dir} ]; then
+    echo "Directory '${script_dir}/${dir}' does not exist!"
+    continue
+  fi
+  rm -r ${dir} 2> /dev/null
+  set -x
+  ln -s ${script_dir}/${dir} ${dir}
+  { set +x; } 2>/dev/null
+done
