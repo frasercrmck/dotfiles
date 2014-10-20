@@ -231,6 +231,8 @@ let g:ycm_min_num_of_chars_for_completion = 99
 
 let g:ycm_confirm_extra_conf = 0
 
+nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      Clang Format Configuration                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
