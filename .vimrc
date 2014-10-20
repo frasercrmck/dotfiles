@@ -24,6 +24,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'frasercrmck/swizzle.vim'
+Bundle 'frasercrmck/freestyler.vim'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
