@@ -132,7 +132,7 @@ nnoremap ' `
 nnoremap ` '
 
 " Search for word under cursor, but don't jump to it
-nnoremap <Leader>* *''
+nnoremap <Leader>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Bash-style Ctrl-A/E mappings to jump to Home/End in Insert mode.
 inoremap <C-a> <Home>
