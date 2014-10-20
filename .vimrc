@@ -291,6 +291,8 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
+" Automatically set the fold method to 'marker' for vim files
+autocmd FileType vim set foldmethod=marker
 " Automatically set the fold method to 'indent' for cmake files
 autocmd FileType cmake set foldmethod=indent
 
