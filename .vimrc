@@ -15,33 +15,33 @@ call vundle#begin()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let Vundle manage Vundle
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " other bundles:
-Bundle 'rking/ag.vim'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'frasercrmck/swizzle.vim'
-Bundle 'frasercrmck/freestyler.vim'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'frasercrmck/swizzle.vim'
+Plugin 'frasercrmck/freestyler.vim'
 
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Colour schemes:
-Bundle 'sickill/vim-monokai'
-Bundle 'jnurmine/Zenburn'
-Bundle 'whatyouhide/vim-gotham'
+Plugin 'sickill/vim-monokai'
+Plugin 'jnurmine/Zenburn'
+Plugin 'whatyouhide/vim-gotham'
 
 " Syntax files:
-Bundle 'frasercrmck/opencl.vim'
+Plugin 'frasercrmck/opencl.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Turn On Filetype Plugins                            "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable detection, plugins and indenting in one step
-" This needs to come AFTER the Bundle commands!
+" This needs to come AFTER the Plugin commands!
 call vundle#end()
 filetype plugin indent on
 
