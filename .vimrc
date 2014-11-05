@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'frasercrmck/swizzle.vim'
 Plugin 'frasercrmck/freestyler.vim'
+Plugin 'frasercrmck/formative.vim'
 
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -234,11 +235,10 @@ let g:ycm_confirm_extra_conf = 0
 nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                      Clang Format Configuration                         "
+"                       Formative Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <silent> <C-K> :pyf ~/.vim/clang-format.py<CR>
-inoremap <silent> <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
+let g:fmtv_clang_format_py = '~/.vim/clang-format.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
