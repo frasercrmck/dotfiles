@@ -12,15 +12,30 @@ setopt transient_rprompt  # Hide RPROMPT after cmdline is executed
 source $HOME/.zsh-config/.zsh-prompt.zsh
 vim_time_prompt
 
+case `uname` in
+  Darwin)
+    IS_OSX=1
+    ;;
+esac
+
 # Source other things
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [ ! $IS_OSX ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
 
 # Aliases
 # -------
-alias ls='ls --color=auto'
+if [ $IS_OSX ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
 alias grepc='grep --color -HinRI'
 alias agc='ag -S --nogroup'
+if [ $IS_OSX ]; then
+  alias vim='mvim -v'
+fi
 alias vimr='vim --servername VIM_SERVER --remote'
 
 # History & History Expansion
