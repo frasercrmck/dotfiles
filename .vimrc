@@ -218,10 +218,10 @@ endif
 "                     You Complete Me Configuration                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 99
 
-let g:ycm_confirm_extra_conf = 0
-
+" Perform the 'most sensible' GoTo operation on the word under the cursor
 nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
