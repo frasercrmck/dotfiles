@@ -145,8 +145,8 @@ nnoremap Y y$
 " This makes j and k work on 'screen lines' instead of on 'file lines'; now,
 " when we have a long line that wraps to multiple lines, j and k behave as we
 " expect them to.
-nnoremap <silent> k gk
-nnoremap <silent> j gj
+nnoremap <expr> k (v:count ? 'k' : 'gk')
+nnoremap <expr> j (v:count ? 'j' : 'gj')
 
 " Space toggles folds
 nnoremap <space> za
