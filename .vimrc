@@ -231,7 +231,7 @@ nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 let g:fmtv_clang_format_py = '~/.vim/clang-format.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         Custom Commands                                 "
+"                          Ctrl-P Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_custom_ignore = {
@@ -240,6 +240,10 @@ let g:ctrlp_custom_ignore = {
       \ 'link': '',
       \ }
 let g:ctrlp_show_hidden = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         Custom Commands                                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Search for the word under the cursor
 command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
