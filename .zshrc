@@ -12,6 +12,14 @@ setopt transient_rprompt  # Hide RPROMPT after cmdline is executed
 source $HOME/.zsh-config/.zsh-prompt.zsh
 vim_time_prompt
 
+## run TRAPALRM every $TMOUT seconds
+TMOUT=30
+
+TRAPALRM () {
+  ## reset-prompt - this will update the prompt
+  zle reset-prompt
+}
+
 case `uname` in
   Darwin)
     IS_OSX=1
