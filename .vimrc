@@ -121,10 +121,10 @@ let g:clipbrdDefaultReg = '+'  " set clipboard register to '+'
 "                               Mappings                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Exist insert mode by typing jk
+" Exit insert mode by typing jk
 inoremap jk <Esc>
 
-" Swap ; and : since we used : more often than ;
+" Swap ; and : since I use : more often than ;
 nnoremap ; :
 nnoremap : ;
 
