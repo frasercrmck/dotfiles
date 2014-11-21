@@ -1,8 +1,6 @@
 autoload -U colors && colors
 autoload -U promptinit && promptinit
 
-stty -ixon                # Prevent Ctrl-S from freezing
-
 setopt ignoreeof          # Prevent Ctrl-D from exiting
 
 setopt promptsubst        # ALlow parameter, command, etc, in prompt
