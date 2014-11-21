@@ -132,6 +132,9 @@ nnoremap : ;
 nnoremap ' `
 nnoremap ` '
 
+" Set <Leader> to space key
+let mapleader = " "
+
 " Search for word under cursor, but don't jump to it
 nnoremap <Leader>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
@@ -147,9 +150,6 @@ nnoremap Y y$
 " expect them to.
 nnoremap <expr> k (v:count ? 'k' : 'gk')
 nnoremap <expr> j (v:count ? 'j' : 'gj')
-
-" Space toggles folds
-nnoremap <space> za
 
 " Stop the cursor moving when joining lines
 nnoremap J mzJ`z
