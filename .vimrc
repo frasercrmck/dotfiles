@@ -21,7 +21,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'frasercrmck/swizzle.vim'
 Plugin 'frasercrmck/freestyler.vim'
@@ -229,17 +228,6 @@ nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:fmtv_clang_format_py = '~/.vim/clang-format.py'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                          Ctrl-P Configuration                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn))|(build)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ 'link': '',
-      \ }
-let g:ctrlp_show_hidden = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
