@@ -188,6 +188,11 @@ nnoremap K <nop>
 nnoremap <silent> gc :cclose<CR>
 nnoremap <silent> gl :lclose<CR>
 
+nnoremap <silent> <leader>y "+y
+nnoremap <silent> <leader>p "+p
+nnoremap <silent> <leader>y "+y
+nnoremap <silent> <leader>p "+p
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
