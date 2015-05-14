@@ -107,7 +107,7 @@ set cursorline                 " highlight the current line
 set completeopt=menu,menuone   " insert-mode completion menu
 
 " Highlight matching parenthesis
-highlight MatchParen cterm=none ctermbg=green ctermfg=blue
+highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
