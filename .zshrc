@@ -39,6 +39,7 @@ else
 fi
 alias grepc='grep --color -HinRI'
 alias agc='ag -S --nogroup'
+alias vim='nvim'
 if [ $IS_OSX ]; then
   alias vim='mvim -v'
 fi
