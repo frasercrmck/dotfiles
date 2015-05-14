@@ -50,10 +50,10 @@ function TRAPINT() {
 }
 
 vim_time_prompt() {
-	colour1=$white
-	colour2=$bwhite
-	colour3=$grey
-	PROMPT='${colour1}[$colour2%D{%H:%M}$colour1] $vim_mode $colour1($colour2%n$colour1@$colour2%m$colour1)%#$normal '
-	RPROMPT="$colour1($colour2%~$colour1)$normal"
-	RPROMPT2="$colour1($colour2%~$colour1)$normal"
+  colour1=$white
+  colour2=$bwhite
+  colour3=$grey
+  PROMPT='${colour1}[$colour2%D{%H:%M}$colour1] $vim_mode $colour1($colour2%n$colour1)%#$normal '
+  RPROMPT="$colour1($colour2%~$colour1)$normal"
+  RPROMPT2="$colour1($colour2%~$colour1)$normal"
 }
