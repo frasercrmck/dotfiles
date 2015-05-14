@@ -6,7 +6,7 @@ echo script_dir
 
 cd ~/
 
-for file in .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
+for file in .nvimrc .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
 do
   if [ ! -f ${script_dir}/${file} ]; then
     echo "File '${script_dir}/${file}' does not exist!"
@@ -18,7 +18,7 @@ do
   { set +x; } 2>/dev/null
 done
 
-for dir in .i3 .vim .zsh-config
+for dir in .i3 .nvim .vim .zsh-config
 do
   if [ ! -d ${script_dir}/${dir} ]; then
     echo "Directory '${script_dir}/${dir}' does not exist!"
