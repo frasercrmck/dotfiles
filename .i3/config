@@ -97,17 +97,18 @@ workspace 10 output DVI-I-1
 
 # programs and their workspaces
 assign [Class="Firefox"]     8
+assign [Class="Chromium"]    8
 assign [Class="Thunderbird"] 9
 assign [Class="Pidgin"]      10
 assign [Class="Skype"]       10
 assign [Class="HipChat"]     10
 
-exec --no-startup-id firefox
+exec --no-startup-id chromium
 exec --no-startup-id thunderbird
 exec --no-startup-id hipchat
 
 # pretty ugly background
-exec --no-startup-id xsetroot -solid "#7C4985"
+exec --no-startup-id feh --bg-scale ~/Simple.png
 
 # switch to workspace
 bindsym $mod+1 workspace 1
