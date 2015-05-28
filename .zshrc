@@ -66,9 +66,10 @@ SAVEHIST=50000
 # -----------------------
 source $HOME/.zsh-config/.zsh-vim.zsh
 
-# Change XTERM title
+# Change XTERM title & set 256-colours
 case $TERM in
     xterm*)
+        export TERM=xterm-256color
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
         ;;
 esac

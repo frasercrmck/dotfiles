@@ -2,6 +2,4 @@
 
 setxkbmap -option ctrl:nocaps
 
-export TERM=xterm-256color
-
 exec i3
