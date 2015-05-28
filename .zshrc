@@ -39,9 +39,11 @@ else
 fi
 alias grepc='grep --color -HinRI'
 alias agc='ag -S --nogroup'
-alias vim='nvim'
 if [ $IS_OSX ]; then
   alias vim='mvim -v'
+else;
+  alias vim='nvim'
+  export EDITOR=nvim
 fi
 alias vimr='vim --servername VIM_SERVER --remote'
 
