@@ -116,8 +116,9 @@ highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
-set backupdir=~/.nvim/backup    " move backups out of .git folders
+set backupdir=~/.nvim/backup   " move backups out of .git folders
 
+set clipboard=unnamed          " Use the '*' register
 let g:clipbrdDefaultReg = '+'  " set clipboard register to '+'
 
 
