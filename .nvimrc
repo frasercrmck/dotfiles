@@ -74,9 +74,9 @@ set nocompatible
 
 set showcmd                    " show typed command in status bar
 
-set foldmethod=syntax          " fold source code based on synax
-set foldlevelstart=99          " open all folds by default
-set foldnestmax=5              " limit amount of folds to 5-deep
+" set foldmethod=syntax          " fold source code based on synax
+" set foldlevelstart=99          " open all folds by default
+" set foldnestmax=5              " limit amount of folds to 5-deep
 
 set autoindent                 " auto-indentation
 
