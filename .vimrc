@@ -26,8 +26,6 @@ Plugin 'frasercrmck/swizzle.vim'
 Plugin 'frasercrmck/freestyler.vim'
 Plugin 'frasercrmck/formative.vim'
 
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 " Colour schemes:
 Plugin 'sickill/vim-monokai'
 Plugin 'jnurmine/Zenburn'
