@@ -196,8 +196,10 @@ nnoremap <silent> gl :lclose<CR>
 
 nnoremap <silent> <leader>y "+y
 nnoremap <silent> <leader>p "+p
+nnoremap <silent> <leader>P "+P
 vnoremap <silent> <leader>y "+y
 vnoremap <silent> <leader>p "+p
+vnoremap <silent> <leader>P "+P
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
