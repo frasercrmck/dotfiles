@@ -56,13 +56,13 @@ setopt histreduceblanks     # Compact consecutive white space chars
 setopt incappendhistory     # Incrementally add items to HISTFILE
 # setopt share_history        # Share history between sessions
 
-HISTSIZE=50000
+HISTSIZE=500000
 if (( ! EUID )); then
   HISTFILE=~/.history_root
 else
   HISTFILE=~/.history
 fi
-SAVEHIST=50000
+SAVEHIST=500000
 
 # Vim Mode & Vim Bindings
 # -----------------------
