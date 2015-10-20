@@ -1,7 +1,6 @@
 # Vim bindings
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M vicmd '?'  history-incremental-search-backward
-bindkey -M vicmd ':'  vi-repeat-find
 
 bindkey -M viins '^o' vi-backward-kill-word
 
