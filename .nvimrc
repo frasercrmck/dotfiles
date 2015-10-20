@@ -2,8 +2,6 @@
 "                               Preamble                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible
-
 if has('nvim')
   let s:editor_root=expand("~/.nvim")
 else
@@ -53,7 +51,6 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         General Settings                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256
 
 " LOOK AND FEEL
 colorscheme gotham256          " select 256-colour gotham colourscheme
@@ -69,8 +66,6 @@ syntax on
 
 " EDITOR SETTINGS
 set sessionoptions=blank,buffers,sesdir,folds,help,options,tabpages,winsize
-
-set nocompatible
 
 set showcmd                    " show typed command in status bar
 
