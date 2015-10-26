@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo ${SCRIPT_DIR}
 
-cd ~/
+HOME_DIR=~/
 
 function symlink_file()
 {
@@ -25,10 +25,10 @@ function symlink_file()
 
 for FILE in .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
 do
-  symlink_file ${SCRIPT_DIR}/${FILE} ${FILE}
+  symlink_file ${SCRIPT_DIR}/${FILE} ${HOME_DIR}/${FILE}
 done
 
-symlink_file ${SCRIPT_DIR}/.config/nvim/init.vim .vimrc
+symlink_file ${SCRIPT_DIR}/.config/nvim/init.vim ${HOME_DIR}/.vimrc
 
 function symlink_dir()
 {
@@ -49,5 +49,5 @@ function symlink_dir()
 
 for DIR in .i3 .config/nvim .vim .zsh-config
 do
-  symlink_dir ${SCRIPT_DIR}/${DIR} ${DIR}
+  symlink_dir ${SCRIPT_DIR}/${DIR} ${HOME_DIR}/${DIR}
 done
