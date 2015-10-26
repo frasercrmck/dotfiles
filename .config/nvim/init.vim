@@ -62,8 +62,6 @@ set statusline=%f%m%r%h%w\ [%l/%L,\ %v]\ [%p%%]\ %=[TYPE=%Y]\ [FMT=%{&ff}]\ %{\"
 
 syntax on
 
-" set tags=./tags;/
-
 " EDITOR SETTINGS
 set sessionoptions=blank,buffers,sesdir,folds,help,options,tabpages,winsize
 
