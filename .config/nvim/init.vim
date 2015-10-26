@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has('nvim')
-  let s:editor_root=expand("~/.nvim")
+  let s:editor_root=expand("~/.config/nvim")
 else
   let s:editor_root=expand("~/.vim")
 endif
@@ -111,7 +111,7 @@ highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
-set backupdir=~/.nvim/backup   " move backups out of .git folders
+set backupdir=~/.config/nvim/backup   " move backups out of .git folders
 
 set clipboard=unnamed          " Use the '*' register
 let g:clipbrdDefaultReg = '*'  " set clipboard register to '*'
@@ -168,7 +168,7 @@ vnoremap > >gv
 nmap gV `[v`]
 
 " Edit vimrc \gv
-nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/.nvimrc<CR>
+nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/config/nvim/init.vim<CR>
 
 " Escape search highlighing with \\
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
@@ -231,7 +231,7 @@ nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 "                       Formative Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:fmtv_clang_format_py = '~/.nvim/clang-format.py'
+let g:fmtv_clang_format_py = '~/.config/nvim/clang-format.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
