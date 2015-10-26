@@ -54,7 +54,7 @@ colorscheme gotham256          " select 256-colour gotham colourscheme
 set gfn=Consolas:h10
 
 set laststatus=2               " the status line is always shown
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=%f%m%r%h%w\ [%l/%L,\ %v]\ [%p%%]\ %=[TYPE=%Y]\ [FMT=%{&ff}]\ %{\"[ENC=\".(&fenc==\"\"?&enc:&fenc).\"]\"}
 
 syntax on
 
