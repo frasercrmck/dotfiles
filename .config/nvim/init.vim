@@ -2,6 +2,10 @@
 "                               Preamble                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+if !has('nvim')
+  set nocompatible
+endif
+
 if has('nvim')
   let g:editor_root=expand("~/.config/nvim")
 else
