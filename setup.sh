@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo ${script_dir}
+echo ${SCRIPT_DIR}
 
 cd ~/
 
@@ -23,9 +23,9 @@ function symlink_file()
   { set +x; } 2>/dev/null
 }
 
-for file in .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
+for FILE in .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
 do
-  symlink_file ${script_dir}/${file} ${file}
+  symlink_file ${SCRIPT_DIR}/${FILE} ${FILE}
 done
 
 function symlink_dir()
@@ -45,7 +45,7 @@ function symlink_dir()
   { set +x; } 2>/dev/null
 }
 
-for dir in .i3 .config/nvim .vim .zsh-config
+for DIR in .i3 .config/nvim .vim .zsh-config
 do
-  symlink_dir ${script_dir}/${dir} ${dir}
+  symlink_dir ${SCRIPT_DIR}/${DIR} ${DIR}
 done
