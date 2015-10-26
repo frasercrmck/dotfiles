@@ -23,10 +23,12 @@ function symlink_file()
   { set +x; } 2>/dev/null
 }
 
-for FILE in .vimrc .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
+for FILE in .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
 do
   symlink_file ${SCRIPT_DIR}/${FILE} ${FILE}
 done
+
+symlink_file ${SCRIPT_DIR}/.config/nvim/init.vim .vimrc
 
 function symlink_dir()
 {
