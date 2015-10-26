@@ -3,17 +3,17 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has('nvim')
-  let s:editor_root=expand("~/.config/nvim")
+  let g:editor_root=expand("~/.config/nvim")
 else
-  let s:editor_root=expand("~/.vim")
+  let g:editor_root=expand("~/.vim")
 endif
 
 " Needed for Vundle, will be turned on after Vundle inits
 filetype off
 
-let &runtimepath.= ',' . s:editor_root."/bundle/Vundle.vim"
+let &runtimepath.= ',' . g:editor_root."/bundle/Vundle.vim"
 
-call vundle#begin(s:editor_root."/bundle")
+call vundle#begin(g:editor_root."/bundle")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Vundle Configuration                            "
@@ -109,7 +109,7 @@ highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
-set backupdir=~/.config/nvim/backup   " move backups out of .git folders
+execute 'set backupdir='.g:editor_root.'/backup'
 
 set clipboard=unnamed          " Use the '*' register
 let g:clipbrdDefaultReg = '*'  " set clipboard register to '*'
@@ -166,7 +166,7 @@ vnoremap > >gv
 nmap gV `[v`]
 
 " Edit vimrc \gv
-nnoremap <silent> <Leader>gv :tabnew<CR>:e ~/config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>gv :tabnew<CR>:e $MYVIMRC<CR>
 
 " Escape search highlighing with \\
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
@@ -229,7 +229,7 @@ nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 "                       Formative Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:fmtv_clang_format_py = '~/.config/nvim/clang-format.py'
+let g:fmtv_clang_format_py = g:editor_root.'/clang-format.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
