@@ -32,7 +32,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'frasercrmck/swizzle.vim'
-Plugin 'frasercrmck/freestyler.vim'
 Plugin 'frasercrmck/formative.vim'
 
 " Colour schemes:
