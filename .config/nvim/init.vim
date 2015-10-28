@@ -169,10 +169,10 @@ vnoremap > >gv
 " Highlight the last-inserted text
 nmap gV `[v`]
 
-" Edit vimrc \gv
-nnoremap <silent> <Leader>gv :tabnew<CR>:e $MYVIMRC<CR>
+" Edit vimrc or init.vim: <Leader>ev
+nnoremap <silent> <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
 
-" Escape search highlighing with \\
+" Escape search highlighing with <Leader><Leader>
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
 " Unmap certain operations I accidentally hit...
