@@ -36,8 +36,6 @@ Plugin 'frasercrmck/freestyler.vim'
 Plugin 'frasercrmck/formative.vim'
 
 " Colour schemes:
-Plugin 'sickill/vim-monokai'
-Plugin 'jnurmine/Zenburn'
 Plugin 'whatyouhide/vim-gotham'
 
 " Syntax files:
