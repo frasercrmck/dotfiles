@@ -12,42 +12,36 @@ else
   let g:editor_root=expand("~/.vim")
 endif
 
-" Needed for Vundle, will be turned on after Vundle inits
-filetype off
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "                        Vim-Plug Configuration                           "
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let &runtimepath.= ',' . g:editor_root."/bundle/Vundle.vim"
+if empty(glob(g:editor_root.'/autoload/plug.vim'))
+  execute 'silent !curl -fLo '.g:editor_root.'/autoload/plug.vim --create-dirs
+           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * source $MYVIMRC
+endif
 
-call vundle#begin(g:editor_root."/bundle")
+call plug#begin(g:editor_root."/bundle")
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         Vundle Configuration                            "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-
-" other bundles:
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'frasercrmck/swizzle.vim'
-Plugin 'frasercrmck/formative.vim'
+" Plugins
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'frasercrmck/swizzle.vim'
+Plug 'frasercrmck/formative.vim'
+Plug 'Valloric/YouCompleteMe', {
+      \   'do': './install.py --clang-completer --system-libclang',
+      \   'for': [ 'c', 'cpp' ]
+      \ }
 
 " Colour schemes:
-Plugin 'whatyouhide/vim-gotham'
+Plug 'whatyouhide/vim-gotham'
 
 " Syntax files:
-Plugin 'frasercrmck/opencl.vim'
+Plug 'frasercrmck/opencl.vim', { 'for': 'opencl' }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                     Turn On Filetype Plugins                            "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable detection, plugins and indenting in one step
-" This needs to come AFTER the Plugin commands!
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         General Settings                                "
