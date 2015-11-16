@@ -161,7 +161,14 @@ vnoremap > >gv
 nmap gV `[v`]
 
 " Edit vimrc or init.vim: <Leader>ev
-nnoremap <silent> <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
+function! OpenMYVIMRC()
+  if !empty(expand('%:t'))
+    :tabnew
+  endif
+  :e $MYVIMRC
+endfunction
+
+nnoremap <silent> <Leader>ev :<C-U>call OpenMYVIMRC()<CR>
 
 " Escape search highlighing with <Leader><Leader>
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
