@@ -23,7 +23,7 @@ function symlink_file()
   { set +x; } 2>/dev/null
 }
 
-for FILE in .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py
+for FILE in .zshrc .zshenv .bashrc .xinitrc .Xresources .ycm_extra_conf.py .config/csh_compat.sh
 do
   symlink_file ${SCRIPT_DIR}/${FILE} ${HOME_DIR}/${FILE}
 done

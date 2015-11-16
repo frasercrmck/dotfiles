@@ -30,6 +30,9 @@ if [ ! $IS_OSX ]; then
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
+# Source csh compatibility functions
+source ~/.config/csh_compat.sh
+
 # Aliases
 # -------
 if [ $IS_OSX ]; then
