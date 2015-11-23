@@ -47,6 +47,8 @@ if [ $IS_OSX ]; then
 else;
   alias vim='nvim'
   export EDITOR=nvim
+  export VISUAL=nvim
+  export BROWSER=chromium
 fi
 alias vimr='vim --servername VIM_SERVER --remote'
 
