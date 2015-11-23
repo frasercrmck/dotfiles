@@ -275,7 +275,12 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+" Automatically cd into the directory that the file is in (unless it's a
+" neovim terminal)
+autocmd BufEnter *
+    \ if &buftype !=# "terminal" |
+        \ execute "chdir ".escape(expand("%:p:h"), ' ') |
+    \ endif
 
 " Automatically set the fold method to 'marker' for vim files
 autocmd FileType vim set foldmethod=marker
