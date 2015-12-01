@@ -104,6 +104,15 @@ highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
+" C/C++ indent options to more closely match LLVM style:
+" * Ls:  Jump labels indent same as everything else
+" * :0:  Zero indent case labels
+" * l1:  Align with case label instead of statement after it in same line
+" * g0:  Zero indent C++ scope declarations
+" * N-s: Zero indent inside namespaces
+" * +2s: Indent continuation line more
+set cinoptions=Ls:0l1g0N-s+2s
+
 execute 'set backupdir='.g:editor_root.'/backup'
 
 set clipboard=unnamed          " Use the '*' register
@@ -289,6 +298,8 @@ autocmd BufEnter *
 autocmd FileType vim set foldmethod=marker
 " Automatically set the fold method to 'indent' for cmake files
 autocmd FileType cmake set foldmethod=indent
+" Teach vim about doxygen comments
+autocmd FileType c,cpp set comments^=:///
 
 " Go to the last cursor location when a file is opened, unless this is a
 " git commit (in which case it's annoying)
