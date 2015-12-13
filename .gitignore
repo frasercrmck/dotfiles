@@ -1,12 +1,9 @@
 *.tmp
 *.swp
 
-.vim/bundle
-.vim/.netrwhist*
-
-.config/nvim/bundle
-.config/nvim/autoload
-.config/nvim/.netrwhist*
+config.symlink/nvim/bundle
+config.symlink/nvim/autoload
+config.symlink/nvim/.netrwhist*
 
 # Compiled python classes
 *.pyc
