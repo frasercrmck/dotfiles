@@ -1,5 +1,15 @@
 # Vim bindings
 bindkey -M viins 'jk' vi-cmd-mode
+
+function accept_then_cmd {
+  accept-search
+  vi-cmd-mode
+}
+zle -N accept_then_cmd
+
+bindkey -M isearch 'jk' accept_then_cmd
+bindkey -M isearch '\e' accept_then_cmd
+
 bindkey -M vicmd '?'  history-incremental-search-backward
 
 bindkey -M viins '^o' vi-backward-kill-word
