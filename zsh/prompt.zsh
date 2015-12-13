@@ -1,3 +1,5 @@
+autoload -U colors && colors
+
 # normal
 black="%{[0;30m%}"
 red="%{[0;31m%}"
@@ -56,4 +58,14 @@ vim_time_prompt() {
   PROMPT='${colour1}[$colour2%D{%H:%M}$colour1] $vim_mode $colour1($colour2%n$colour1)%#$normal '
   RPROMPT="$colour1($colour2%~$colour1)$normal"
   RPROMPT2="$colour1($colour2%~$colour1)$normal"
+}
+
+vim_time_prompt
+
+## run TRAPALRM every $TMOUT seconds
+TMOUT=30
+
+TRAPALRM () {
+  ## reset-prompt - this will update the prompt
+  zle reset-prompt
 }
