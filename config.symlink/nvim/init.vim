@@ -82,6 +82,8 @@ set wildmode=longest,list,full
 set wildmenu                   " completion with menu
 set wildignore=*.o,*.obj.*.exe " ignore binaries when listing files
 
+set wildcharm=<Tab>            " Allow <Tab> to complete in mappings
+
 set mouse=a                    " enable mouse support
 
 set nohidden                   " when I close a tab, remove the buffer
@@ -178,6 +180,10 @@ function! OpenMYVIMRC()
 endfunction
 
 nnoremap <silent> <Leader>ev :<C-U>call OpenMYVIMRC()<CR>
+
+" Start opening the current file with no extension.
+" Useful for going to header files quickly.
+nnoremap <Leader>ef :e %:r.<Tab>
 
 " Escape search highlighing with <Leader><Leader>
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
