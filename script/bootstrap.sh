@@ -19,7 +19,6 @@ success () {
 
 fail () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
   exit
 }
 
@@ -89,7 +88,8 @@ link_file () {
 
   if [ "${skip}" != "true" ]  # "false" or empty
   then
-    ln -s "$1" "$2"
+    errs=$( ln -s "$1" "$2" 2>&1 )
+    [ "$?" != "0" ] && fail "$errs"
     success "linked $1 to $2"
   fi
 }
