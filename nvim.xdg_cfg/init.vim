@@ -19,7 +19,7 @@ endif
 if empty(glob(g:editor_root.'/autoload/plug.vim'))
   execute 'silent !curl -fLo '.g:editor_root.'/autoload/plug.vim --create-dirs
            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * source $MYVIMRC
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin(g:editor_root."/bundle")
