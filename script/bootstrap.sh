@@ -104,6 +104,15 @@ install_dotfiles () {
     dst="${HOME}/.$(basename "${src%.*}")"
     link_file "${src}" "${dst}"
   done
+
+  # Ensure ${HOME}/.config is present before symlinking in XDG_CONFIG_HOME directories
+  mkdir -p ${HOME}/.config
+
+  for src in $(find -H "${DOTFILES_ROOT}" -maxdepth 2 -name '*.xdg_cfg' -not -path '*.git*')
+  do
+    dst="${HOME}/.config/$(basename "${src%.*}")"
+    link_file "${src}" "${dst}"
+  done
 }
 
 install_dotfiles

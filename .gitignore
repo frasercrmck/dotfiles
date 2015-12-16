@@ -1,9 +1,9 @@
 *.tmp
 *.swp
 
-config.symlink/nvim/bundle
-config.symlink/nvim/autoload
-config.symlink/nvim/.netrwhist*
+nvim.xdg_cfg/bundle
+nvim.xdg_cfg/autoload
+nvim.xdg_cfg/.netrwhist*
 
 # Compiled python classes
 *.pyc
