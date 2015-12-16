@@ -16,8 +16,3 @@ do
   esac
   echo "${line/[/${dat}}" || exit 1
 done
-# if [ ${LG} == "gb" ]; then
-#   dat="[{ \"full_text\": \"LANG: ${LG}\", \"color\":\"#009E00\" },"
-# else
-#   dat="[{ \"full_text\": \"LANG: ${LG}\", \"color\":\"#C60101\" },"
-# fi
