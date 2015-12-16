@@ -2,7 +2,7 @@
 
 # Custom shell script to add features to i3status
 
-i3status -c ~/.i3/i3status.conf | while :
+i3status -c ${HOME}/.config/i3status/config | while :
 do
   read line
   LG=$( xset -q | grep LED | awk '{ print $10 }' )
