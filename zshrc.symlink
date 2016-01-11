@@ -1,4 +1,4 @@
-ZSH=${HOME}/tool-setup
+ZSH=${HOME}/dotfiles
 
 case `uname` in
   Darwin)
