@@ -31,8 +31,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
 Plug 'frasercrmck/formative.vim'
 Plug 'Valloric/YouCompleteMe', {
-      \   'do': './install.py --clang-completer --system-libclang',
-      \   'for': [ 'c', 'cpp' ]
+      \   'do': './install.py --clang-completer',
+      \   'for': [ 'c', 'cpp', 'python', 'tablegen' ]
       \ }
 
 " Colour schemes:
