@@ -88,6 +88,8 @@ set mouse=a                    " enable mouse support
 
 set nohidden                   " when I close a tab, remove the buffer
 
+set nojoinspaces               " oNly one space between [.!?] and the next word
+
 set number                     " show line numbers
 set relativenumber             " show line numbers as relative offsets
 
@@ -290,8 +292,8 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically cd into the directory that the file is in
-autocmd FocusLost * set norelativenumber
-autocmd FocusGained * set relativenumber
+autocmd FocusLost * windo set norelativenumber
+autocmd FocusGained * windo set relativenumber
 
 " Automatically cd into the directory that the file is in (unless it's a
 " neovim terminal)
