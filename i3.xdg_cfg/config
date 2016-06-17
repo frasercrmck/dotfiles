@@ -105,7 +105,7 @@ assign [Class="HipChat"]     10
 
 exec --no-startup-id chromium
 exec --no-startup-id thunderbird
-exec --no-startup-id hipchat
+exec --no-startup-id hipchat4 --disable-gpu
 
 # start two terminals on workspace 1
 exec --no-startup-id "i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-sensible-terminal'"
