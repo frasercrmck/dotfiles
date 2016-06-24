@@ -83,17 +83,17 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+u workspace prev
 bindsym $mod+i workspace next
 
-workspace 1  output HDMI-2
-workspace 2  output HDMI-2
-workspace 3  output HDMI-2
-workspace 4  output HDMI-2
-workspace 5  output HDMI-2
+workspace 1  output HDMI1
+workspace 2  output HDMI1
+workspace 3  output HDMI1
+workspace 4  output HDMI1
+workspace 5  output HDMI1
 
-workspace 6  output DVI-I-1
-workspace 7  output DVI-I-1
-workspace 8  output DVI-I-1
-workspace 9  output DVI-I-1
-workspace 10 output DVI-I-1
+workspace 6  output HDMI2
+workspace 7  output HDMI2
+workspace 8  output HDMI2
+workspace 9  output HDMI2
+workspace 10 output HDMI2
 
 # programs and their workspaces
 assign [Class="Firefox"]     8
