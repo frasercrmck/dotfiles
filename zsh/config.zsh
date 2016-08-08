@@ -3,6 +3,7 @@
 setopt ignoreeof            # Prevent Ctrl-D from exiting
 setopt promptsubst          # Allow parameter, command, etc, in prompt
 setopt transient_rprompt    # Hide RPROMPT after cmdline is executed
+setopt interactivecomments  # Comment out my interactive prompt
 
 # History & History Expansion
 # ---------------------------
