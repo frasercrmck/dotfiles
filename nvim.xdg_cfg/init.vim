@@ -311,7 +311,7 @@ autocmd FileType c,cpp set comments^=:///
 
 " Go to the last cursor location when a file is opened, unless this is a
 " git commit (in which case it's annoying)
-au BufReadPost *
+autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
         \ execute("normal `\"") |
     \ endif
