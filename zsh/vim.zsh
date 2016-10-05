@@ -22,8 +22,8 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M vicmd '^r' history-incremental-pattern-search-backward
-bindkey -M viins '^s' history-incremental-pattern-search-forward
-bindkey -M vicmd '^s' history-incremental-pattern-search-forward
+bindkey -M viins '^e' history-incremental-pattern-search-forward
+bindkey -M vicmd '^e' history-incremental-pattern-search-forward
 
 bindkey -M viins '^p' up-line-or-history
 bindkey -M viins '^n' down-line-or-history
@@ -36,9 +36,6 @@ bindkey -M vicmd '^u' vi-kill-line
 
 bindkey -M viins '^k' kill-line
 bindkey -M vicmd '^k' kill-line
-
-bindkey -M viins '^a' vi-beginning-of-line
-bindkey -M viins '^e' vi-end-of-line
 
 # Switch them all on
 bindkey -v
