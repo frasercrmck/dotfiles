@@ -97,7 +97,7 @@ workspace 10 output HDMI2
 
 # programs and their workspaces
 assign [Class="Firefox"]     8
-assign [Class="chromium"]    8
+assign [Class="Chromium"]    8
 assign [Class="Thunderbird"] 9
 assign [Class="Pidgin"]      10
 assign [Class="Skype"]       10
