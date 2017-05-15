@@ -6,10 +6,18 @@ case `uname` in
     ;;
 esac
 
+source_if_exists () {
+  if [ -f "$1" ]; then
+    source "$1"
+  else
+    echo "Note: not sourcing $1"
+  fi
+}
+
 # Source other things
 if [ ! ${IS_OSX} ]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source_if_exists /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 # Source csh compatibility functions
