@@ -7,11 +7,17 @@ fi
 alias grepc='grep --color -HinRI'
 alias agc='ag -S --nogroup'
 
+command_exists () {
+  command -v "$1" > /dev/null 2>&1
+}
+
 if [ ${IS_OSX} ]; then
   alias vim='mvim -v'
 else;
-  alias vim='nvim'
-  export EDITOR=nvim
-  export VISUAL=nvim
+  if command_exists nvim; then
+    alias vim='nvim'
+    export EDITOR=nvim
+    export VISUAL=nvim
+  fi
   export BROWSER=chromium
 fi
