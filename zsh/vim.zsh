@@ -38,5 +38,8 @@ bindkey -M vicmd '^u' vi-kill-line
 bindkey -M viins '^k' kill-line
 bindkey -M vicmd '^k' kill-line
 
+# Visual mode seems weird to me; disable it
+bindkey -M vicmd -r 'v'
+
 # Switch them all on
 bindkey -v
