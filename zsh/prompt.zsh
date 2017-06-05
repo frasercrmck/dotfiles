@@ -52,11 +52,11 @@ function TRAPINT() {
 }
 
 vim_time_prompt() {
-  colour1=$white
-  colour2=$bwhite
-  colour3=$grey
+  colour1=${white}
+  colour2=${bwhite}
+  colour3=${grey}
   cur_dir="%(5~|%-1~/…/%3~|%4~)"
-  PROMPT='${colour1}[$colour2%D{%H:%M}$colour1] $vim_mode $colour1($colour2%n$colour1)%#$normal '
+  PROMPT='${colour1}[${colour2}%D{%H:%M}${colour1}] ${vim_mode} ${colour1}(${colour2}%n${colour1})%#${normal} '
   RPROMPT="${colour1}(${colour2}${cur_dir}${colour1})${normal}"
   RPROMPT2=${RPROMPT}
 }
