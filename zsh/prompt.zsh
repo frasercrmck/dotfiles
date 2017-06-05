@@ -27,8 +27,8 @@ normal="%{[0m%}"
 # background red = 41
 fgwhitebgred="%{[0;37;41m%}"
 
-vim_ins_mode="%{$cyan%}[I]%{$reset_color%}"
-vim_cmd_mode="%{$green%}[C]%{$reset_color%}"
+vim_ins_mode="%B%F{cyan}[I]%f%b"
+vim_cmd_mode="%B%F{green}[C]%f%b"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
@@ -52,12 +52,9 @@ function TRAPINT() {
 }
 
 vim_time_prompt() {
-  colour1=${white}
-  colour2=${bwhite}
-  colour3=${grey}
-  cur_dir="%(5~|%-1~/…/%3~|%4~)"
-  PROMPT='${colour1}[${colour2}%D{%H:%M}${colour1}] ${vim_mode} ${colour1}(${colour2}%n${colour1})%#${normal} '
-  RPROMPT="${colour1}(${colour2}${cur_dir}${colour1})${normal}"
+  CUR_DIR="%(5~|%-1~/…/%3~|%4~)"
+  PROMPT='[%B%D{%H:%M}%b] ${vim_mode} (%B%n%b)%#${normal} '
+  RPROMPT="(%B${CUR_DIR}%b)${normal}"
   RPROMPT2=${RPROMPT}
 }
 
