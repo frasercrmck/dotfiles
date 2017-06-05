@@ -27,8 +27,8 @@ normal="%{[0m%}"
 # background red = 41
 fgwhitebgred="%{[0;37;41m%}"
 
-vim_ins_mode="%{$cyan%}[INS]%{$reset_color%}"
-vim_cmd_mode="%{$green%}[CMD]%{$reset_color%}"
+vim_ins_mode="%{$cyan%}[I]%{$reset_color%}"
+vim_cmd_mode="%{$green%}[C]%{$reset_color%}"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
