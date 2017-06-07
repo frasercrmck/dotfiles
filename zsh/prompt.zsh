@@ -5,7 +5,11 @@ vim_cmd_mode="%B%F{green}[C]%f%b"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  if [ ${KEYMAP} = "vicmd" ]; then
+    vim_mode=${vim_cmd_mode}
+  elif [[ ${KEYMAP} =~ "main|viins" ]]; then
+    vim_mode=${vim_ins_mode}
+  fi
   zle reset-prompt
 }
 zle -N zle-keymap-select
