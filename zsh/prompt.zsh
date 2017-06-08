@@ -28,9 +28,22 @@ function TRAPINT() {
   return $(( 128 + $1 ))
 }
 
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+last_time=${SECONDS}
+
+function precmd() {
+  if [ $timer ]; then
+    last_time=$(($SECONDS - $timer))
+    unset timer
+  fi
+}
+
 vim_time_prompt() {
   CUR_DIR="%(5~|%-1~/…/%3~|%4~)"
-  PROMPT='[%B%D{%H:%M}%b] ${vim_mode} (%B%n%b)%# '
+  PROMPT='[%B%D{%H:%M}%b/%B%F{yellow}${last_time}s%f%b]·${vim_mode}%# '
   RPROMPT="(%B${CUR_DIR}%b)"
   RPROMPT2=${RPROMPT}
 }
