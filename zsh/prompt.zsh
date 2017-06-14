@@ -28,9 +28,11 @@ function TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-function preexec() {
+function preexec_prompt_timer() {
   timer=${timer:-$SECONDS}
 }
+# Load the timer function into the set of preexecs
+preexec_functions+=(preexec_prompt_timer)
 
 last_time=${SECONDS}
 
