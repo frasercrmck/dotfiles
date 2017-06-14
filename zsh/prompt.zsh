@@ -34,12 +34,14 @@ function preexec() {
 
 last_time=${SECONDS}
 
-function precmd() {
+function precmd_prompt_timer() {
   if [ $timer ]; then
     last_time=$(($SECONDS - $timer))
     unset timer
   fi
 }
+# Load the timer function into the set of precmds
+precmd_functions+=(precmd_prompt_timer)
 
 vim_time_prompt() {
   CUR_DIR="%(5~|%-1~/…/%3~|%4~)"

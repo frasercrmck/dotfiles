@@ -32,13 +32,16 @@ do
   source ${file}
 done
 
+precmd_set_xterm_title() {
+  print -Pn "\e]0;%n@%m: %~\a"
+}
+
 # Change XTERM title
-# TODO: re-enable to work with definition of precmd in vim.zsh
-#case ${TERM} in
-#  xterm*)
-#    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-#    ;;
-#esac
+case ${TERM} in
+  xterm*)
+    precmd_functions+=(precmd_set_xterm_title)
+    ;;
+esac
 
 autoload -Uz compinit
 compinit
