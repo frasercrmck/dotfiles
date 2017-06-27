@@ -113,6 +113,9 @@ exec --no-startup-id "i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-se
 # pretty ugly background
 exec --no-startup-id feh --bg-scale ~/Simple.png
 
+# nm-applet
+exec --no-startup-id ~/.config/i3/scripts/i3nm-applet.sh
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
