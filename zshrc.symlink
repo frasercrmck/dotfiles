@@ -8,16 +8,20 @@ esac
 
 source_if_exists () {
   if [ -f "$1" ]; then
-    source "$1"
+    source "$1"; return 0
   else
-    echo "Note: not sourcing $1"
+    echo "Note: not sourcing $1"; return 1
   fi
 }
 
 # Source other things
 if [ ! ${IS_OSX} ]; then
-  source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source_if_exists /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  DIR1=/usr/share/zsh/plugins
+  DIR2=/usr/share
+  ZSH_PLUGINS=(zsh-syntax-highlighting zsh-history-substring-search)
+  for p in "${ZSH_PLUGINS[@]}"; do
+    source_if_exists ${DIR1}/${p}/${p}.zsh || source_if_exists ${DIR2}/${p}/${p}.zsh
+  done
 fi
 
 # Source csh compatibility functions
