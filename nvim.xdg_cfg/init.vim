@@ -209,6 +209,9 @@ vnoremap <silent> <leader>y "+y
 vnoremap <silent> <leader>p "+p
 vnoremap <silent> <leader>P "+P
 
+" Search for the word under the cursor, but wait for optional directory input
+nnoremap <leader>ag :Ag! <C-R>=expand('<cword>')<CR><Space>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,9 +256,6 @@ let g:fmtv_clang_format_py = g:editor_root.'/clang-format.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Search for the word under the cursor
-command! -nargs=1 -complete=file Agc :Ag! <cword> <q-args>
 
 " Convert a code block into a string literal
 function! MakeStringLiteral()
