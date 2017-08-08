@@ -14,6 +14,7 @@ URxvt*termName: xterm-256color
 URxvt*background: black
 URxvt*foreground: white
 URxvt*cursorColor: lightgrey
+URxvt*saveLines: 1000000
 ! No scroll bar
 URxvt*scrollBar: false
 ! Do not scroll with output
