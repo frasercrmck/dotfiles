@@ -3,9 +3,9 @@ Getting DOT files to open with xdot
 
 Sigh. What a pain! Most systems think that `.dot` files are ms-word files. To fix this, do the following:
 
-Install the `perl-file-mimeinfo` package
+Install the `perl-file-mimeinfo` (ArchLinux) or `libfile-mimeinfo-perl` (Ubuntu) package.
 
-Copy the following into `/usr/share/mime/packages`:
+Copy the following into a new file in `/usr/share/mime/packages` (such as `xdot.xml`):
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
