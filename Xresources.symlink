@@ -9,7 +9,7 @@ XTerm*foreground: white
 XTerm*cursorColor: lightgrey
 
 ! Same as XTerm above
-URxvt.font: xft:Source Code Pro Semibold:size=10
+URxvt.font: xft:Source Code Pro Semibold:size=14
 URxvt*termName: xterm-256color
 URxvt*background: black
 URxvt*foreground: white
@@ -40,3 +40,7 @@ URxvt*color12: #729FCF
 URxvt*color13: #AD7FA8
 URxvt*color14: #FCAF3E
 URxvt*color15: #EEEEEC
+
+URxvt.perl-ext-common: font-size,keyboard-select
+
+URxvt.keysym.M-Escape: perl:keyboard-select:activate

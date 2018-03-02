@@ -113,6 +113,12 @@ install_dotfiles () {
     dst="${HOME}/.config/$(basename "${src%.*}")"
     link_file "${src}" "${dst}"
   done
+
+  for src in $(find -H "${DOTFILES_ROOT}/urxvt_scripts" -type f)
+  do
+    dst="${HOME}/.urxvt/ext/$(basename "${src%.*}")"
+    link_file "${src}" "${dst}"
+  done
 }
 
 install_dotfiles
