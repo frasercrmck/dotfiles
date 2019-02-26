@@ -41,5 +41,16 @@ bindkey -M vicmd '^k' kill-line
 # Visual mode seems weird to me; disable it
 bindkey -M vicmd -r 'v'
 
+# Weird Keys
+
+bindkey -M vicmd "^[[3~" delete-char
+bindkey -M viins "^[[3~" delete-char
+
+bindkey -M viins "^[[7~" beginning-of-line
+bindkey -M viins "^[[8~" end-of-line
+
+bindkey -M vicmd "^[[7~" beginning-of-line
+bindkey -M vicmd "^[[8~" end-of-line
+
 # Switch them all on
 bindkey -v
