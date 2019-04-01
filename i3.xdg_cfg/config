@@ -96,16 +96,12 @@ workspace 9  output HDMI2
 workspace 10 output HDMI2
 
 # programs and their workspaces
-assign [Class="Firefox"]     8
-assign [Class="Chromium"]    8
+assign [Class="Firefox"]     10
+assign [Class="Chromium"]    10
 assign [Class="Thunderbird"] 9
-assign [Class="Pidgin"]      10
-assign [Class="Skype"]       10
-assign [Class="HipChat"]     10
+assign [Class="Skype"]       8
 
-exec --no-startup-id chromium
-exec --no-startup-id thunderbird
-exec --no-startup-id hipchat4 --disable-gpu
+exec --no-startup-id firefox
 
 # start two terminals on workspace 1
 exec --no-startup-id "i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-sensible-terminal'"
