@@ -30,10 +30,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
 Plug 'frasercrmck/formative.vim'
-Plug 'Valloric/YouCompleteMe', {
-      \   'do': './install.py --clang-completer',
-      \   'for': [ 'c', 'cpp', 'python', 'tablegen' ]
-      \ }
 Plug 'neoclide/coc.nvim', {
       \ 'do': { -> coc#util#install() }
       \ }
@@ -239,16 +235,6 @@ if has("gui_running")
   " Don't bother me with pop ups
   set guioptions+=c
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                     You Complete Me Configuration                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_min_num_of_chars_for_completion = 99
-
-" Perform the 'most sensible' GoTo operation on the word under the cursor
-nnoremap <silent> gf :<C-U>YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Language Server Configuration
