@@ -30,6 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
 Plug 'frasercrmck/formative.vim'
+Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', {
       \ 'do': { -> coc#util#install() }
       \ }
@@ -282,6 +283,14 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:fmtv_clang_format_py = g:editor_root.'/clang-format.py'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     Git Messenger Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:git_messenger_no_default_mappings = 1
+
+nmap <leader>m <Plug>(git-messenger)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
