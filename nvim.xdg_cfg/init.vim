@@ -68,6 +68,8 @@ set foldnestmax=5              " limit amount of folds to 5-deep
 
 set autoindent                 " auto-indentation
 
+set autochdir                  " auto change-dir into buffers' directories
+
 set expandtab                  " treat tabs as spaces
 set smarttab                   " treat tabs as spaces
 
@@ -337,13 +339,6 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 " Automatically cd into the directory that the file is in
 autocmd FocusLost * windo set norelativenumber
 autocmd FocusGained * windo set relativenumber
-
-" Automatically cd into the directory that the file is in (if it's a 'normal
-" buffer' (empty buftype))
-autocmd BufEnter *
-    \ if &buftype ==# "" |
-        \ execute "chdir ".escape(expand("%:p:h"), ' ') |
-    \ endif
 
 " Automatically set the fold method to 'marker' for vim files
 autocmd FileType vim set foldmethod=marker
