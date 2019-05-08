@@ -256,6 +256,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Apply first quick-fix under cursor
+nmap <silent> <Leader>q <Plug>(coc-fix-current)
+
+" Rename current word
+nmap <silent> <Leader>rn <Plug>(coc-rename)
+
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -264,8 +270,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set cmdheight=2
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
