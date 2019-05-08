@@ -338,10 +338,10 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 autocmd FocusLost * windo set norelativenumber
 autocmd FocusGained * windo set relativenumber
 
-" Automatically cd into the directory that the file is in (unless it's a
-" neovim terminal)
+" Automatically cd into the directory that the file is in (if it's a 'normal
+" buffer' (empty buftype))
 autocmd BufEnter *
-    \ if &buftype !=# "terminal" |
+    \ if &buftype ==# "" |
         \ execute "chdir ".escape(expand("%:p:h"), ' ') |
     \ endif
 
