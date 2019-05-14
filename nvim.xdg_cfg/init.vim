@@ -258,6 +258,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Remap keys for formatting
+vmap <silent> <leader>f <Plug>(coc-format-selected)
+nmap <silent> <leader>f <Plug>(coc-format-selected)
+
 " Apply first quick-fix under cursor
 nmap <silent> <Leader>q <Plug>(coc-fix-current)
 
