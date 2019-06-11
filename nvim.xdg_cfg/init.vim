@@ -66,6 +66,8 @@ set foldmethod=syntax          " fold source code based on synax
 set foldlevelstart=99          " open all folds by default
 set foldnestmax=5              " limit amount of folds to 5-deep
 
+set nomodeline                 " these aren't required
+
 set autoindent                 " auto-indentation
 
 set autochdir                  " auto change-dir into buffers' directories
