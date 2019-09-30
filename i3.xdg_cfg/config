@@ -98,8 +98,7 @@ workspace 10 output HDMI2
 # programs and their workspaces
 assign [Class="Firefox"]     10
 assign [Class="Chromium"]    10
-assign [Class="Thunderbird"] 9
-assign [Class="Skype"]       8
+assign [Class="zoom"]        9
 
 exec --no-startup-id firefox
 
