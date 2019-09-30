@@ -18,7 +18,7 @@ source_if_exists () {
 if [ ! ${IS_OSX} ]; then
   DIR1=/usr/share/zsh/plugins
   DIR2=/usr/share
-  ZSH_PLUGINS=(zsh-syntax-highlighting zsh-history-substring-search)
+  ZSH_PLUGINS=(zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
   for p in "${ZSH_PLUGINS[@]}"; do
     source_if_exists ${DIR1}/${p}/${p}.zsh || source_if_exists ${DIR2}/${p}/${p}.zsh
   done
