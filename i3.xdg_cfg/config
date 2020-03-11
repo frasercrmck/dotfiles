@@ -96,8 +96,8 @@ workspace 9  output HDMI2
 workspace 10 output HDMI2
 
 # programs and their workspaces
-assign [Class="Firefox"]     10
-assign [Class="Chromium"]    10
+assign [Class="[fF]irefox"]  10
+assign [Class="[cC]hromium"] 10
 assign [Class="zoom"]        9
 
 exec --no-startup-id firefox
