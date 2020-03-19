@@ -47,7 +47,11 @@ precmd_functions+=(precmd_prompt_timer)
 
 vim_time_prompt() {
   CUR_DIR="%(5~|%-1~/…/%3~|%4~)"
-  PROMPT='[%B%D{%H:%M}%b/%B%F{yellow}${last_time}s%f%b]·${vim_mode}%# '
+  HNAME=""
+  if [[ -n "$SSH_CLIENT" ]]; then
+    HNAME="·%B%F{red}%m%f%b"
+  fi
+  PROMPT='[%B%D{%H:%M}%b/%B%F{yellow}${last_time}s%f%b]${HNAME}·${vim_mode}%# '
   RPROMPT="(%B${CUR_DIR}%b)"
   RPROMPT2=${RPROMPT}
 }
