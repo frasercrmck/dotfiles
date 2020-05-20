@@ -1,1 +1,4 @@
+# Note the trailing space
+set prompt (\033[31mgdb\033[0m) 
+
 source ~/dotfiles/gdb/int_to_enum.py
