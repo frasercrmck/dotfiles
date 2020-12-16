@@ -5,7 +5,7 @@ else
 fi
 
 alias grepc='grep --color -HinRI'
-alias agc='ag -S --nogroup'
+alias rg='rg --no-heading'
 
 command_exists () {
   command -v "$1" > /dev/null 2>&1
