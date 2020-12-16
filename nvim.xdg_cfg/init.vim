@@ -25,7 +25,7 @@ endif
 call plug#begin(g:editor_root."/bundle")
 
 " Plugins
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
@@ -213,8 +213,20 @@ vnoremap <silent> <leader>y "+y
 vnoremap <silent> <leader>p "+p
 vnoremap <silent> <leader>P "+P
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              ack.vim                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ackprg = 'rg --vimgrep --smart-case'
+
+" Any empty search will search for the word under the cursor
+let g:ack_use_cword_for_empty_search = 1
+
 " Search for the word under the cursor, but wait for optional directory input
-nnoremap <leader>ag :Ag! <C-R>=expand('<cword>')<CR><Space>
+nnoremap <leader>/ :Ack! <C-R>=expand('<cword>')<CR><Space>
+
+cnoreabbrev Ack Ack!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
