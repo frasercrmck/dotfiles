@@ -18,9 +18,6 @@ bindkey -M viins '^o' vi-backward-kill-word
 bindkey -M vicmd 'yy' vi-yank-whole-line
 bindkey -M vicmd 'Y'  vi-yank-eol
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
 bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M vicmd '^r' history-incremental-pattern-search-backward
 bindkey -M viins '^e' history-incremental-pattern-search-forward
