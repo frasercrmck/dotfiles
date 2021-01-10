@@ -1,0 +1,4 @@
+=== A list of AUR packages I use ===
+# brother-hll2360d
+? For the printers at work
+> https://aur.archlinux.org/brother-hll2360d.git
