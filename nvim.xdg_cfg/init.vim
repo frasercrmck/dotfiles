@@ -131,9 +131,6 @@ let g:clipbrdDefaultReg = '*'  " set clipboard register to '*'
 "                               Mappings                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Exit insert mode by typing jk
-inoremap jk <Esc>
-
 " Swap ` and ' to jump to markers
 nnoremap ' `
 nnoremap ` '
@@ -260,7 +257,6 @@ endif
 " pop-up menu navigation
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
