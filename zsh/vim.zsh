@@ -1,5 +1,4 @@
 # Vim bindings
-bindkey -M viins 'jk' vi-cmd-mode
 
 function accept_then_cmd {
   accept-search
@@ -8,7 +7,6 @@ function accept_then_cmd {
 zle -N accept_then_cmd
 
 bindkey -M isearch 'j'  self-insert
-bindkey -M isearch 'jk' accept_then_cmd
 bindkey -M isearch '\e' accept_then_cmd
 
 bindkey -M vicmd '?'  history-incremental-search-backward
