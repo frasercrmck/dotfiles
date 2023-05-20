@@ -34,6 +34,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', {
       \ 'do': { -> coc#util#install() }
       \ }
+Plug 'bogado/file-line'
 
 " Colour schemes:
 Plug 'whatyouhide/vim-gotham'
