@@ -1,11 +1,12 @@
 {
   "description": "Configuration file for coc.nvim",
+  "suggest.noselect": true,
   "additionalProperties": false,
- "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
-    }
-  }
+  "languageserver": {
+     "clangd": {
+       "command": "clangd",
+       "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+       "filetypes": ["c", "cpp", "objc", "objcpp"]
+     }
+   }
 }
