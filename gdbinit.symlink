@@ -1,4 +1,5 @@
 # Note the trailing space
 set prompt (\033[31mgdb\033[0m) 
+set debuginfod enabled off
 
 source ~/dotfiles/gdb/int_to_enum.py
