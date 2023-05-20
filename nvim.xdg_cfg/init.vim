@@ -78,6 +78,9 @@ set backspace=indent,eol,start " allows backspacing over everything in insert mo
 set shiftwidth=2               " set tabs to 2 spaces
 set softtabstop=2              " set tabs to 2 spaces
 
+" Don't fix the <EOL> at the end of files
+set nofixeol
+
 " first  <Tab>  tries to complete longest match.
 " second <Tab> lists possible matches
 " third  <Tab> completes the next full match
@@ -303,6 +306,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:fmtv_clang_format_py = g:editor_root.'/clang-format.py'
+let g:clang_format_path = '/home/fraser/work/test/bin/clang-format'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Git Messenger Configuration
