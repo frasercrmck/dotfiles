@@ -356,11 +356,11 @@ autocmd FocusLost * windo set norelativenumber
 autocmd FocusGained * windo set relativenumber
 
 " Automatically set the fold method to 'marker' for vim files
-autocmd FileType vim set foldmethod=marker
+autocmd FileType vim setlocal foldmethod=marker
 " Automatically set the fold method to 'indent' for cmake files
-autocmd FileType cmake set foldmethod=indent
+autocmd FileType cmake setlocal foldmethod=indent
 " Teach vim about doxygen comments
-autocmd FileType c,cpp set comments^=:///
+autocmd FileType c,cpp setlocal comments^=:///
 
 " Go to the last cursor location when a file is opened, unless this is a
 " git commit (in which case it's annoying)
