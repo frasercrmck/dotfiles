@@ -1,6 +1,6 @@
 {
   "description": "Configuration file for coc.nvim",
-  "suggest.noselect": true,
+  "suggest.noselect": false,
   "additionalProperties": false,
   "languageserver": {
      "clangd": {
