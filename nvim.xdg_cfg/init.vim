@@ -111,6 +111,8 @@ set completeopt=menu,menuone   " insert-mode completion menu
 
 " Highlight matching parenthesis
 highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
+" Highlight the coc menu selection
+highlight CocMenuSel ctermbg=237 guibg=#13354A
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
