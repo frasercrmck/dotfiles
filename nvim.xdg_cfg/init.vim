@@ -32,9 +32,11 @@ Plug 'frasercrmck/swizzle.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'bogado/file-line'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Colour schemes:
 Plug 'whatyouhide/vim-gotham'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Syntax files:
 Plug 'frasercrmck/opencl.vim', { 'for': 'opencl' }

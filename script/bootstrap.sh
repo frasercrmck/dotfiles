@@ -122,3 +122,5 @@ install_dotfiles () {
 }
 
 install_dotfiles
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
