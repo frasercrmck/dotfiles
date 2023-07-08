@@ -48,7 +48,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " LOOK AND FEEL
-colorscheme gotham256          " select 256-colour gotham colourscheme
+colorscheme catppuccin-macchiato
 
 set gfn=Consolas:h10
 
