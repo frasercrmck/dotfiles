@@ -1,9 +1,13 @@
 *.tmp
 *.swp
 
+# nvim guff local to each installation
 nvim.xdg_cfg/bundle
 nvim.xdg_cfg/autoload
 nvim.xdg_cfg/.netrwhist*
+
+# tmux plugins
+tmux.xdg_cfg/plugins
 
 # Compiled python classes
 *.pyc
