@@ -1,0 +1,9 @@
+# Enable history
+set history save on
+
+# Note the trailing space
+set prompt (\033[31mgdb\033[0m) 
+set debuginfod enabled off
+
+# Not very nice that there's an explicit path here.
+source ~/.config/gdb/int_to_enum.py
