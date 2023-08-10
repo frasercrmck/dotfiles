@@ -48,7 +48,9 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " LOOK AND FEEL
-colorscheme catppuccin-macchiato
+if has('nvim')
+  colorscheme catppuccin-macchiato
+endif
 
 set gfn=Consolas:h10
 
