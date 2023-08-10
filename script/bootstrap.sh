@@ -114,6 +114,7 @@ install_dotfiles () {
     link_file "${src}" "${dst}"
   done
 
+  mkdir -p ${HOME}/.urxvt/ext
   for src in $(find -H "${DOTFILES_ROOT}/urxvt_scripts" -type f)
   do
     dst="${HOME}/.urxvt/ext/$(basename "${src%.*}")"
@@ -123,4 +124,7 @@ install_dotfiles () {
 
 install_dotfiles
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [[ ! -d  ~/.tmux/plugins/tpm ]]
+then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
