@@ -30,7 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
 Plug 'rhysd/git-messenger.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
 
