@@ -122,9 +122,61 @@ install_dotfiles () {
   done
 }
 
+install_fonts () {
+  user "Install fonts? [y]es, [n]o"
+  read -n 1 action
+
+  case "${action}" in
+    y )
+      ;;
+    * )
+      return
+      ;;
+  esac
+
+  info 'installing fonts'
+
+  mkdir -p ~/.fonts
+  TEMP_DIR=$(mktemp -d /tmp/script.XXXXXXX)
+
+  for font in source-code-pro+OTF source-sans+OTF source-serif+Desktop
+  do
+    IFS=+ read -r -d '' family package < <(printf %s "$font")
+    font_file="$(
+    curl -s https://api.github.com/repos/adobe-fonts/${family}/releases/latest \
+    | grep browser_download_url | grep ${package} \
+    | sed -re 's/.*: "([^"]+)".*/\1/' \
+    )"
+    if [[ -z "$font_file" ]]
+    then
+      info "could not find package for $family"
+      continue
+    fi
+    info "downloading $font_file"
+    wget --quiet $font_file -P $TEMP_DIR
+  done
+
+  # Unzip them all
+  for file in $(find $TEMP_DIR -type f -name "*.zip")
+  do
+    unzip $file -d $TEMP_DIR
+  done
+
+  cp $(find ${TEMP_DIR} -type f -name "*.otf") ~/.fonts
+
+  # Install them
+  fc-cache -f -v
+  rm -rf $TEMP_DIR
+}
+
 install_dotfiles
 
 if [[ ! -d  ~/.tmux/plugins/tpm ]]
 then
+  info 'installing tmux tpm'
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  success 'skipped installing tmux tpm'
 fi
+
+install_fonts
