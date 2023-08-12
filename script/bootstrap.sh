@@ -137,14 +137,15 @@ install_fonts () {
   info 'installing fonts'
 
   mkdir -p ~/.fonts
-  TEMP_DIR=$(mktemp -d /tmp/script.XXXXXXX)
 
-  for font in source-code-pro+OTF source-sans+OTF source-serif+Desktop
+  for font in adobe-fonts/source-code-pro+OTF+otf adobe-fonts/source-sans+OTF+otf \
+              adobe-fonts/source-serif+Desktop+otf ryanoasis/nerd-fonts+FiraCode+ttf
   do
-    IFS=+ read -r -d '' family package < <(printf %s "$font")
+    TEMP_DIR=$(mktemp -d /tmp/script.XXXXXXX)
+    IFS=+ read -r -d '' family package suffix < <(printf %s "$font")
     font_file="$(
-    curl -s https://api.github.com/repos/adobe-fonts/${family}/releases/latest \
-    | grep browser_download_url | grep ${package} \
+    curl -s https://api.github.com/repos/${family}/releases/latest \
+    | grep "browser_download_url.*${package}.*\.zip" \
     | sed -re 's/.*: "([^"]+)".*/\1/' \
     )"
     if [[ -z "$font_file" ]]
@@ -154,19 +155,13 @@ install_fonts () {
     fi
     info "downloading $font_file"
     wget --quiet $font_file -P $TEMP_DIR
+    unzip -q $(find ${TEMP_DIR} -type f -name "*.zip") -d $TEMP_DIR
+    cp $(find ${TEMP_DIR} -type f -name "*.${suffix}") ~/.fonts
+    rm -rf $TEMP_DIR
   done
 
-  # Unzip them all
-  for file in $(find $TEMP_DIR -type f -name "*.zip")
-  do
-    unzip $file -d $TEMP_DIR
-  done
-
-  cp $(find ${TEMP_DIR} -type f -name "*.otf") ~/.fonts
-
-  # Install them
+  ## Install them
   fc-cache -f -v
-  rm -rf $TEMP_DIR
 }
 
 install_dotfiles
