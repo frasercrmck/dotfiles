@@ -1,1 +1,3 @@
-export EDITOR=vim
+export EDITOR=nvim
+# Work around firefox snap bug
+export MOZ_ENABLE_WAYLAND=1
