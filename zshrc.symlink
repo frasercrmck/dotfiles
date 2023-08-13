@@ -1,5 +1,3 @@
-ZSH=${HOME}/dotfiles
-
 case `uname` in
   Darwin)
     IS_OSX=1
@@ -30,14 +28,36 @@ fi
 # Source csh compatibility functions
 source ~/.config/csh_compat.sh
 
-typeset -U config_files
-config_files=(${ZSH}/**/*.zsh)
+_load_configs() {
+  config_files="${HOME}/dotfiles/zsh"
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source ${file}
-done
+  if [ -d "$config_files" ]; then
+    if [ -d "$config_files/pre" ]; then
+      for config in "$config_files"/pre/**/*~*.zwc(N-.); do
+        source $config
+      done
+    fi
+
+    for config in "$config_files"/**/*(N-.); do
+      case "$config" in
+      "$config_files"/(pre|post)/*|*.zwc)
+        :
+        ;;
+      *)
+        source $config
+        ;;
+      esac
+    done
+
+    if [ -d "$config_files/post" ]; then
+      for config in "$config_files"/post/**/*~*.zwc(N-.); do
+        source $config
+      done
+    fi
+  fi
+}
+
+_load_configs
 
 precmd_set_xterm_title() {
   print -Pn "\e]0;%n@%m: %~\a"
@@ -49,15 +69,6 @@ case ${TERM} in
     precmd_functions+=(precmd_set_xterm_title)
     ;;
 esac
-
-autoload -Uz compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source ${file}
-done
 
 # pip installs binaries in ~/.local/bin
 export PATH=~/.local/bin:$PATH

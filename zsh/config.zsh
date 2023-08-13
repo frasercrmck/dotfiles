@@ -5,6 +5,7 @@ setopt promptsubst          # Allow parameter, command, etc, in prompt
 setopt transient_rprompt    # Hide RPROMPT after cmdline is executed
 setopt interactivecomments  # Comment out my interactive prompt
 setopt magicequalsubst      # Expand ~ even after =
+setopt extendedglob         # Extended globbing
 
 # History & History Expansion
 # ---------------------------

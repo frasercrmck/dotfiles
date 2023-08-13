@@ -33,6 +33,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Colour schemes:
 Plug 'whatyouhide/vim-gotham'
@@ -71,8 +72,6 @@ set foldnestmax=5              " limit amount of folds to 5-deep
 set nomodeline                 " these aren't required
 
 set autoindent                 " auto-indentation
-
-set autochdir                  " auto change-dir into buffers' directories
 
 set expandtab                  " treat tabs as spaces
 set smarttab                   " treat tabs as spaces
@@ -231,6 +230,12 @@ let g:ack_use_cword_for_empty_search = 1
 nnoremap <leader>/ :Ack! <C-R>=expand('<cword>')<CR><Space>
 
 cnoreabbrev Ack Ack!
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              fzf.vim                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>o :FZF<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
