@@ -73,6 +73,8 @@ set nomodeline                 " these aren't required
 
 set autoindent                 " auto-indentation
 
+set autochdir                  " auto change-dir into buffers' directories
+
 set expandtab                  " treat tabs as spaces
 set smarttab                   " treat tabs as spaces
 
@@ -235,7 +237,15 @@ cnoreabbrev Ack Ack!
 "                              fzf.vim                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <leader>o :FZF<CR>
+fun! Fzfdir()
+  :silent let l:git_repo = system('git rev-parse --show-toplevel')
+  if v:shell_error != 0
+    return getcwd()
+  endif
+  return trim(l:git_repo)
+endfun
+
+nnoremap <leader>o :exec ':FZF '.Fzfdir()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
