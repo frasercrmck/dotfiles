@@ -18,4 +18,4 @@ RANDOM=$$$(date +%s)
 
 COLOUR=${COLOURS[${RANDOM} % ${#COLOURS[@]}]}
 
-swaylock -c ${COLOUR}
+swaylock -f -c ${COLOUR}

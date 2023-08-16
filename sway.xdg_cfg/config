@@ -36,7 +36,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 
 # lock screen
-bindsym $mod+Shift+Return exec $lock
+bindsym $mod+Shift+Return exec pkill -SIGUSR1 swayidle
 
 # volume up/down
 bindsym $mod+Shift+n exec amixer set Master 2%- &
