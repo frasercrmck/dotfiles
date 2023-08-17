@@ -6,6 +6,8 @@ nvim.xdg_cfg/bundle
 nvim.xdg_cfg/autoload
 nvim.xdg_cfg/.netrwhist*
 
+gdb.xdg_cfg/.gdb_history
+
 # tmux plugins
 tmux.xdg_cfg/plugins
 
