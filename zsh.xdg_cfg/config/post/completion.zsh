@@ -9,3 +9,6 @@ autoload -Uz compinit
 # restricts it to once a day.
 [ ! "$(find $ZDOTDIR/.zcompdump -mtime 1)" ] || compinit
 compinit -C
+
+# Also show dot files when completing
+_comp_options+=(globdots)
