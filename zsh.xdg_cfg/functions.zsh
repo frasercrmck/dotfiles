@@ -3,7 +3,7 @@ zsh_add_file() {
 }
 
 zsh_add_plugin() {
-  plugin_name=$(echo $1 | cut -d "/" -f 2)
+  plugin_name=${1#*/}
   if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
     git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$plugin_name"
   fi
