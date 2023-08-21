@@ -1,16 +1,2 @@
-export EDITOR=nvim
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_STATE_HOME="$HOME/.local/state"
-
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-
-# I'll do my own compinit, thank you
-skip_global_compinit=1
-
-# Work around firefox snap bug
-export MOZ_ENABLE_WAYLAND=1
+export ZDOTDIR=~/.config/zsh
+. $ZDOTDIR/.zshenv
