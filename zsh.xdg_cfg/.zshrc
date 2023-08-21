@@ -6,9 +6,6 @@ source "$ZDOTDIR/functions.zsh"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
-# Source csh compatibility functions
-[ -f "$XDG_CONFIG_HOME/csh_compat.sh" ] && source "$XDG_CONFIG_HOME/csh_compat.sh"
-
 zsh_load_configs
 
 precmd_set_xterm_title() {
