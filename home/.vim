@@ -1,0 +1,1 @@
+../xdg_cfg/nvim

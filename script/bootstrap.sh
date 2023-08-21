@@ -101,9 +101,10 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "${DOTFILES_ROOT}" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  # Note this uses a POSIX extension (mindepth) to exclude the xdg_cfg directory itself.
+  for src in $(find -H "${DOTFILES_ROOT}/home" -mindepth 1 -maxdepth 1)
   do
-    dst="${HOME}/.$(basename "${src%.*}")"
+    dst="${HOME}/$(basename $src)"
     link_file "${src}" "${dst}"
   done
 
