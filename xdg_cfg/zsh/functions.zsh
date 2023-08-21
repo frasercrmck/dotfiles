@@ -37,3 +37,12 @@ zsh_load_configs() {
     fi
   fi
 }
+
+zsh_prepend_to_path() {
+  echo "$PATH" | grep -Eq "(^|:)$1(:|$)" || export PATH="$1:$PATH"
+}
+
+zsh_prepend_to_ld_library_path() {
+  echo "$LD_LIBRARY_PATH" | grep -Eq "(^|:)$1(:|$)" \
+    || export LD_LIBRARY_PATH="$1:$LD_LIBRARY_PATH"
+}

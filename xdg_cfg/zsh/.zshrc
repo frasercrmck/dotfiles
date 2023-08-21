@@ -19,8 +19,10 @@ case ${TERM} in
     ;;
 esac
 
-# put ccache first on the path
 # pip installs binaries in ~/.local/bin
-export PATH=/usr/lib/ccache:~/.local/bin:$PATH
+zsh_prepend_to_path ~/.local/bin
+# put ccache first on the path
+zsh_prepend_to_path /usr/lib/ccache
+
 # /usr/local/lib is a common place for user-built libraries
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+zsh_prepend_to_ld_library_path /usr/local/lib
