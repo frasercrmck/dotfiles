@@ -1,6 +1,6 @@
 # Enable history
 set history save on
-set history filename ~/.config/gdb/.gdb_history
+# Note that GDBHISTFILE is set in $ZDOTDIR/config/gdb.zsh
 
 # Note the trailing space
 set prompt (\033[31mgdb\033[0m) 
