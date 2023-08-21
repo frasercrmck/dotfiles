@@ -5,6 +5,8 @@
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
+export XDG_CONFIG_HOME="$HOME"/.config
+
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
@@ -105,12 +107,13 @@ install_dotfiles () {
     link_file "${src}" "${dst}"
   done
 
-  # Ensure ${HOME}/.config is present before symlinking in XDG_CONFIG_HOME directories
-  mkdir -p ${HOME}/.config
+  # Ensure ${XDG_CONFIG_HOME} is present before symlinking in directories
+  mkdir -p ${XDG_CONFIG_HOME}
 
-  for src in $(find -H "${DOTFILES_ROOT}" -maxdepth 2 -name '*.xdg_cfg' -not -path '*.git*')
+  # Note this uses a POSIX extension (mindepth) to exclude the xdg_cfg directory itself.
+  for src in $(find -H "${DOTFILES_ROOT}/xdg_cfg" -mindepth 1 -maxdepth 1 -type d)
   do
-    dst="${HOME}/.config/$(basename "${src%.*}")"
+    dst="${XDG_CONFIG_HOME}/$(basename "${src%.*}")"
     link_file "${src}" "${dst}"
   done
 
@@ -165,8 +168,6 @@ install_fonts () {
 }
 
 install_dotfiles
-
-export XDG_CONFIG_HOME="$HOME"/.config
 
 if [[ ! -d  $XDG_CONFIG_HOME/tmux/plugins/tpm ]]
 then
