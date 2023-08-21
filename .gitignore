@@ -16,4 +16,3 @@ tmux.xdg_cfg/plugins
 
 # zsh plugins ,etc
 zsh.xdg_cfg/plugins
-zsh.xdg_cfg/.zcompdump

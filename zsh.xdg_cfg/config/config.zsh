@@ -14,12 +14,10 @@ setopt histignoredups       # Ignore consecutive dups
 setopt histfindnodups       # Backwards search produces diff result each time
 setopt histreduceblanks     # Compact consecutive white space chars
 setopt incappendhistory     # Incrementally add items to HISTFILE
-# setopt share_history        # Share history between sessions
+# setopt share_history      # Share history between sessions
 
 HISTSIZE=500000
-if (( ! EUID )); then
-  HISTFILE=~/.history_root
-else
-  HISTFILE=~/.history
-fi
 SAVEHIST=500000
+
+HISTFILE="$XDG_STATE_HOME"/zsh/history
+[ ! -d "$XDG_STATE_HOME"/zsh ] && mkdir -p "$XDG_STATE_HOME"/zsh
