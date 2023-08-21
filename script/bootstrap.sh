@@ -166,10 +166,12 @@ install_fonts () {
 
 install_dotfiles
 
-if [[ ! -d  ~/.tmux/plugins/tpm ]]
+export XDG_CONFIG_HOME="$HOME"/.config
+
+if [[ ! -d  $XDG_CONFIG_HOME/tmux/plugins/tpm ]]
 then
   info 'installing tmux tpm'
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 else
   success 'skipped installing tmux tpm'
 fi
