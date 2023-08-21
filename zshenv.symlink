@@ -7,6 +7,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+
 # I'll do my own compinit, thank you
 skip_global_compinit=1
 
