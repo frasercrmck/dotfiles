@@ -374,9 +374,45 @@ map <silent> [y :call UnMakeStringLiteral()<CR>
 "                         Auto Commands                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Automatically cd into the directory that the file is in
-autocmd FocusLost * windo set norelativenumber
-autocmd FocusGained * windo set relativenumber
+" Returns true if the specified window ID is a floating window. Code stolen
+" from coc#window#is_float, but we don't want to rely on coc being present.
+function! IsFloatingWindow(winid) abort
+  if !has('nvim')
+    try
+      return !empty(popup_getpos(a:winid))
+    catch /^Vim\%((\a\+)\)\=:E993/
+      return 0
+    endtry
+  else
+    let config = nvim_win_get_config(a:winid)
+    return !empty(config) && !empty(get(config, 'relative', ''))
+  endif
+endfunction
+
+" Executes a command on the current window if it's not a floating window.
+function! ExecuteIfNotFloatingWindow(command)
+  let currwin=winnr()
+  let winid=win_getid(currwin)
+  if !IsFloatingWindow(winid)
+    execute a:command
+  endif
+endfunction
+
+" Executes a command on all non-floating windows, restoring focus to the
+" original window.
+function! WinDoNFW(command)
+  let currwin=winnr()
+  execute 'windo call ExecuteIfNotFloatingWindow(' . string(a:command) . ')'
+  execute currwin . 'wincmd w'
+endfunction
+com! -nargs=+ -complete=command Windo call WinDoNFW(<q-args>)ndow . "wincmd w"
+
+" Just like WinDoNFW, but disable all autocommands for super fast processing.
+command! -nargs=+ -complete=command WinDoNFWFast noautocmd call WinDoNFW(<q-args>)
+
+" Toggle relativenumber on all non-floating windows when focus is lost/gained.
+autocmd FocusLost * WinDoNFWFast set norelativenumber
+autocmd FocusGained * WinDoNFWFast set relativenumber
 
 " Automatically set the fold method to 'marker' for vim files
 autocmd FileType vim setlocal foldmethod=marker
