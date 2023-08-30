@@ -29,6 +29,9 @@ include /etc/sway/config-vars.d/*
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
+# Notification daemon
+exec swaync
+
 # start a terminal
 bindsym $mod+Return exec $term
 
