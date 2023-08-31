@@ -12,6 +12,18 @@ COLOURS=(
   FFAAA6 # Pinkish
   FF8C94 # Reddish
   EFDD6F # Yellow
+# Colours stolen from catppuccin macchiatto:
+# https://github.com/catppuccin/foot/blob/main/catppuccin-macchiato.conf
+  24273A # Background
+  CAD3F5 # Text
+  494D64 # Surface 1
+  B8C0E0 # Subtext 1
+  5B6078 # Surface 2
+  A6DA95 # Green
+  EED49F # Yellow
+  F5BDE6 # Pink
+  8BD5CA # Teal
+  A5ADCB # Subtext 0
 )
 
 RANDOM=$$$(date +%s)
