@@ -105,8 +105,8 @@ bindsym $mod+u workspace prev
 bindsym $mod+i workspace next
 
 # This only really works at the office
-set $left_screen 'Dell Inc. DELL U2412M Y1H5T1CA4N2L'
-set $right_screen 'Dell Inc. DELL U2412M 0FFXD34G3G3S'
+set $left_screen 'Dell Inc. DELL U2415 08DXD5CI3JLS'
+set $right_screen 'Dell Inc. DELL U2415 7MT0173805HS'
 
 ### Output configuration
 #
