@@ -278,13 +278,6 @@ if has("gui_running")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       Formative Configuration                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:fmtv_clang_format_py = g:editor_root.'/clang-format.py'
-let g:clang_format_path = '/home/fraser/work/test/bin/clang-format'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                     Git Messenger Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
