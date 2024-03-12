@@ -30,10 +30,17 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
 Plug 'rhysd/git-messenger.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" Language server stuff
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig' " Easy ready-made LSP configs
+  Plug 'hrsh7th/cmp-nvim-lsp'  " For auto-completions
+  Plug 'hrsh7th/nvim-cmp'      " For auto-completions
+  Plug 'L3MON4D3/LuaSnip'      " For snippets (required by nvim-cmp)
+endif
 
 " Colour schemes:
 Plug 'whatyouhide/vim-gotham'
@@ -115,8 +122,6 @@ set completeopt=menu,menuone   " insert-mode completion menu
 
 " Highlight matching parenthesis
 highlight MatchParen cterm=none ctermbg=darkmagenta ctermfg=blue
-" Highlight the coc menu selection
-highlight CocMenuSel ctermbg=237 guibg=#13354A
 
 set grepprg=grep\ -nRHi\ $*    " grep command defaults
 
@@ -273,55 +278,6 @@ if has("gui_running")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                     Language Server Configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" pop-up menu navigation
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Remap keys for formatting
-vmap <silent> <leader>f <Plug>(coc-format-selected)
-nmap <silent> <leader>f <Plug>(coc-format-selected)
-
-" Apply first quick-fix under cursor
-nmap <silent> <Leader>q <Plug>(coc-fix-current)
-
-" Rename current word
-nmap <silent> <Leader>rn <Plug>(coc-rename)
-
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
-
-set cmdheight=2
-
-inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1):
-        \ <SID>check_back_space() ? "\<Tab>" :
-        \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Formative Configuration                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -339,6 +295,68 @@ nmap <leader>m <Plug>(git-messenger)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('nvim')
+  lua << EOF
+    -- Add additional capabilities supported by nvim-cmp
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local lspconfig = require 'lspconfig'
+
+    lspconfig.clangd.setup {
+      capabilities = capabilities,
+    }
+
+    -- luasnip setup
+    local luasnip = require 'luasnip'
+
+    -- nvim-cmp setup
+    local cmp = require 'cmp'
+    cmp.setup {
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+        ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+        -- C-b (back) C-f (forward) for snippet placeholder navigation.
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        },
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+      }),
+      sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+      },
+    }
+
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+    vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
+    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+EOF
+endif
 
 " Convert a code block into a string literal
 function! MakeStringLiteral()
