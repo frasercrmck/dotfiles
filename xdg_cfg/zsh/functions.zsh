@@ -1,5 +1,9 @@
+zsh_source_file() {
+  [ -f "$1" ] && source "$1"
+}
+
 zsh_add_file() {
-  [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+  zsh_source_file "$ZDOTDIR/$1"
 }
 
 zsh_add_plugin() {
