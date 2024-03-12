@@ -149,6 +149,13 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# Auto-start and auto-assignment
+exec firefox
+exec evolution
+
+assign [app_id="evolution"] → 9
+assign [app_id="firefox"]   → 10
+
 ### Input configuration
 #
 input * {
