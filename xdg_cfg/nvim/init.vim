@@ -44,7 +44,8 @@ endif
 
 " Colour schemes:
 Plug 'whatyouhide/vim-gotham'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin_vim' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin_nvim' }
 
 " Syntax files:
 Plug 'frasercrmck/opencl.vim', { 'for': 'opencl' }
@@ -58,6 +59,8 @@ call plug#end()
 " LOOK AND FEEL
 if has('nvim')
   colorscheme catppuccin-macchiato
+else
+  colorscheme catppuccin_macchiato
 endif
 
 set gfn=Consolas:h10
