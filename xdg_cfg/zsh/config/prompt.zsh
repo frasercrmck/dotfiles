@@ -82,11 +82,7 @@ function TRAPINT() {
 
 vim_time_prompt() {
   CUR_DIR="%(5~|%-1~/…/%3~|%4~)"
-  HNAME=""
-  if [[ -n "$SSH_CLIENT" ]]; then
-    HNAME="·%B%F{red}%m%f%b"
-  fi
-  PROMPT='%B[%F{yellow}%n%f%F{green}@%f%F{blue}%m%f]%b${HNAME}%# '
+  PROMPT='%B[%F{yellow}%n%f%F{green}@%f%F{blue}%m%f]%b%# '
   RPROMPT="(%B${CUR_DIR}%b)"
   RPROMPT2=${RPROMPT}
 }
