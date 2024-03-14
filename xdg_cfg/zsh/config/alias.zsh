@@ -7,10 +7,6 @@ fi
 alias grepc='grep --color -HinRI'
 alias rg='rg -S --no-heading --hidden'
 
-command_exists () {
-  command -v "$1" > /dev/null 2>&1
-}
-
 if [ ${IS_OSX} ]; then
   alias vim='mvim -v'
 else;

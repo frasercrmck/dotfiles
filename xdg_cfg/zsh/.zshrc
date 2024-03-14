@@ -19,10 +19,6 @@ case ${TERM} in
     ;;
 esac
 
-# Try and source modules
-zsh_source_file /etc/profile.d/modules.zsh || \
-  zsh_source_file /etc/profile.d/modules.sh
-
 # pip installs binaries in ~/.local/bin
 zsh_prepend_to_path ~/.local/bin
 # put ccache first on the path
