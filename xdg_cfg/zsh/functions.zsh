@@ -16,6 +16,7 @@ zsh_add_plugin() {
 }
 
 zsh_load_configs() {
+  setopt local_options extendedglob         # Temporarily enable extended globbing
   if [ -d "$ZDOTDIR/config" ]; then
     if [ -d "$ZDOTDIR/config/pre" ]; then
       for config in "$ZDOTDIR/config"/pre/**/*~*.zwc(N-.); do
