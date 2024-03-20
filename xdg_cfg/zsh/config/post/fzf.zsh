@@ -23,6 +23,8 @@ export FZF_CTRL_T_OPTS="--height 60% \
 
 # Reverse the Ctrl-R view, add preview toggle with '?'
 export FZF_CTRL_R_OPTS="--reverse \
+  --exact
+  --no-sort
   --preview 'echo {}'
   --preview-window down:3:hidden:wrap
   --bind '?:toggle-preview'"
