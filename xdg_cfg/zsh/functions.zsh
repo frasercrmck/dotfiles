@@ -16,27 +16,29 @@ zsh_add_plugin() {
 }
 
 zsh_load_configs() {
-  setopt local_options extendedglob         # Temporarily enable extended globbing
+  SOURCEDBG=false
+  TMPEXTGLOB=(setopt localoptions extendedglob)
   if [ -d "$ZDOTDIR/config" ]; then
     if [ -d "$ZDOTDIR/config/pre" ]; then
-      for config in "$ZDOTDIR/config"/pre/**/*~*.zwc(N-.); do
+      for config in $((){ $TMPEXTGLOB; echo "$ZDOTDIR/config"/pre/**/*~*.zwc(N-.) }); do
+        [ $SOURCEDBG = true ] && echo "pre source $config"
         source $config
       done
     fi
 
-    for config in "$ZDOTDIR/config"/**/*(N-.); do
-      case "$config" in
-      "$ZDOTDIR/config"/(pre|post)/*|*.zwc)
-        :
-        ;;
-      *)
-        source $config
-        ;;
-      esac
+    ignore_configs=($((){ $TMPEXTGLOB; echo "$ZDOTDIR/config"/(pre|post)/*~*.zwc(N-.) }))
+
+    for config in $((){ $TMPEXTGLOB; echo "$ZDOTDIR/config"/**/*(N-.) }); do
+      if (($ignore_configs[(Ie)$config])); then
+        continue
+      fi
+      [ $SOURCEDBG = true ] && echo "mid source $config"
+      source $config
     done
 
     if [ -d "$ZDOTDIR/config/post" ]; then
-      for config in "$ZDOTDIR/config"/post/**/*~*.zwc(N-.); do
+      for config in $((){ $TMPEXTGLOB; echo "$ZDOTDIR/config"/post/**/*~*.zwc(N-.) }); do
+        [ $SOURCEDBG = true ] && echo "post source $config"
         source $config
       done
     fi
