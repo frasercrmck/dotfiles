@@ -302,6 +302,10 @@ if has('nvim')
       capabilities = capabilities,
     }
 
+    lspconfig.gdscript.setup {
+      capabilities = capabilities,
+    }
+
     -- luasnip setup
     local luasnip = require 'luasnip'
 
@@ -434,6 +438,9 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType cmake setlocal foldmethod=indent
 " Teach vim about doxygen comments
 autocmd FileType c,cpp setlocal comments^=:///
+
+" Use tabs in godot
+autocmd FileType gdscript setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " Go to the last cursor location when a file is opened, unless this is a
 " git commit (in which case it's annoying)
