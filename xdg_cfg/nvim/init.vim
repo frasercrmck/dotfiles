@@ -142,7 +142,6 @@ execute 'set backupdir='.g:editor_root.'/backup'
 set clipboard=unnamed          " Use the '*' register
 let g:clipbrdDefaultReg = '*'  " set clipboard register to '*'
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               Mappings                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,6 +225,20 @@ vnoremap <silent> <leader>y "+y
 vnoremap <silent> <leader>p "+p
 vnoremap <silent> <leader>P "+P
 
+function s:AddTerminalNavigation()
+  tnoremap <buffer> <silent> <Esc> <C-\><C-n>
+  if &filetype ==# ''
+    tnoremap <buffer> <silent> <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+    tnoremap <buffer> <silent> <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
+    tnoremap <buffer> <silent> <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
+    tnoremap <buffer> <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
+  endif
+endfunction
+
+augroup TerminalNavigation
+  autocmd!
+  autocmd TermOpen * call s:AddTerminalNavigation()
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              ack.vim                                    "
