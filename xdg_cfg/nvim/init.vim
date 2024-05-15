@@ -98,7 +98,7 @@ set nofixeol
 " first  <Tab>  tries to complete longest match.
 " second <Tab> lists possible matches
 " third  <Tab> completes the next full match
-set wildmode=longest,list,full
+set wildmode=longest:lastused,list,full
 set wildmenu                   " completion with menu
 set wildignore=*.o,*.obj.*.exe " ignore binaries when listing files
 
