@@ -212,8 +212,6 @@ nnoremap <F1> <nop>
 " Execute mode
 nnoremap Q <nop>
 nnoremap gQ <nop>
-" Man pages
-nnoremap K <nop>
 
 nnoremap <silent> gc :cclose<CR>
 nnoremap <silent> gl :lclose<CR>
@@ -312,6 +310,7 @@ if has('nvim')
     local lspconfig = require 'lspconfig'
 
     lspconfig.clangd.setup {
+      cmd = { "clangd", "--completion-style=detailed" },
       capabilities = capabilities,
     }
 
@@ -364,9 +363,12 @@ if has('nvim')
       },
     }
 
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-    vim.keymap.set('n', '[c', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', ']c', vim.diagnostic.goto_next)
+    if not vim.fn.has('nvim-0.10') then
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+      vim.keymap.set('n', '<C-w>d',     vim.diagnostic.open_float)
+      vim.keymap.set('n', '<C-w><C-d>', vim.diagnostic.open_float)
+    end
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 EOF
 endif
