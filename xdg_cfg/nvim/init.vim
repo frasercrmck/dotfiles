@@ -365,7 +365,7 @@ if has('nvim')
       },
     }
 
-    if not vim.fn.has('nvim-0.10') then
+    if vim.fn.has('nvim-0.10') == 0 then
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
       vim.keymap.set('n', '<C-w>d',     vim.diagnostic.open_float)
