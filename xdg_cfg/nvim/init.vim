@@ -215,8 +215,8 @@ nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap gQ <nop>
 
-nnoremap <silent> gc :cclose<CR>
-nnoremap <silent> gl :lclose<CR>
+nnoremap <silent> <leader>c :cclose<CR>
+nnoremap <silent> <leader>l :lclose<CR>
 
 nnoremap <silent> <leader>y "+y
 nnoremap <silent> <leader>p "+p
