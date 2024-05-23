@@ -40,6 +40,7 @@ if has('nvim')
   Plug 'hrsh7th/cmp-nvim-lsp'  " For auto-completions
   Plug 'hrsh7th/nvim-cmp'      " For auto-completions
   Plug 'L3MON4D3/LuaSnip'      " For snippets (required by nvim-cmp)
+  Plug 'ojroques/nvim-osc52'   " For OSC-52 support (made obsolete by v0.10?)
 endif
 
 " Colour schemes:
@@ -365,6 +366,7 @@ if has('nvim')
       },
     }
 
+    -- These mappings all become defaults in neovim 0.10
     if vim.fn.has('nvim-0.10') == 0 then
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -372,6 +374,14 @@ if has('nvim')
       vim.keymap.set('n', '<C-w><C-d>', vim.diagnostic.open_float)
     end
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+    function osc52_copy()
+      if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
+        require('osc52').copy_register('+')
+      end
+    end
+
+    vim.api.nvim_create_autocmd('TextYankPost', {callback = osc52_copy})
 EOF
 endif
 
