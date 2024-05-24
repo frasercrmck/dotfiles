@@ -6,6 +6,9 @@ source "$ZDOTDIR/functions.zsh"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
+# pip installs binaries in ~/.local/bin
+zsh_prepend_to_path ~/.local/bin
+
 zsh_load_configs
 
 precmd_set_xterm_title() {
@@ -19,8 +22,6 @@ case ${TERM} in
     ;;
 esac
 
-# pip installs binaries in ~/.local/bin
-zsh_prepend_to_path ~/.local/bin
 # put ccache first on the path
 zsh_prepend_to_path /usr/lib/ccache
 
