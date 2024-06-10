@@ -269,6 +269,11 @@ endfun
 
 nnoremap <leader>o :exec ':FZF '.Fzfdir()<CR>
 
+" Ensure <Esc> closes the fzf window - seems like tnoremapping Esc (above)
+" interferes with fzf's ability to read the escape key. See
+" https://github.com/junegunn/fzf/issues/1393#issuecomment-426576577
+autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
