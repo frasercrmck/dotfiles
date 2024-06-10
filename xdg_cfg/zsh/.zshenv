@@ -16,3 +16,5 @@ skip_global_compinit=1
 
 # Work around firefox snap bug
 export MOZ_ENABLE_WAYLAND=1
+
+export WLR_NO_HARDWARE_CURSORS=1
