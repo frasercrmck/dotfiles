@@ -394,7 +394,7 @@ if has('nvim')
     end
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-    function osc52_copy()
+    local function osc52_copy()
       if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
         require('osc52').copy_register('+')
       end
