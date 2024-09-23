@@ -146,6 +146,9 @@ execute 'set backupdir='.g:editor_root.'/backup'
 set clipboard=unnamed          " Use the '*' register
 let g:clipbrdDefaultReg = '*'  " set clipboard register to '*'
 
+let g:markdown_fenced_languages = [ 'html', 'python', 'lua', 'llvm', 'cpp', 'vim', 'tablegen' ]
+let g:markdown_syntax_conceal = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               Mappings                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
