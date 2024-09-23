@@ -394,6 +394,15 @@ if has('nvim')
     end
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+    local opts = { noremap=true, silent=true }
+    local function quickfix()
+      vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+      })
+    end
+    vim.keymap.set('n', '<space>qf', quickfix, opts)
+
     local function osc52_copy()
       if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
         require('osc52').copy_register('+')
