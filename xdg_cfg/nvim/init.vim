@@ -29,6 +29,7 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
+Plug 'frasercrmck/formative.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
@@ -306,6 +307,14 @@ endif
 let g:git_messenger_no_default_mappings = 1
 
 nmap <leader>m <Plug>(git-messenger)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        Formative Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:fmtv_no_mappings = 1
+
+autocmd FileType opencl setlocal formatexpr=formative#ClangFormat('formatexpr')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Custom Commands                                 "
