@@ -237,10 +237,12 @@ function s:AddTerminalNavigation()
   endif
 endfunction
 
-augroup TerminalNavigation
-  autocmd!
-  autocmd TermOpen * call s:AddTerminalNavigation()
-augroup END
+if has("nvim")
+  augroup TerminalNavigation
+    autocmd!
+    autocmd TermOpen * call s:AddTerminalNavigation()
+  augroup END
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              ack.vim                                    "
