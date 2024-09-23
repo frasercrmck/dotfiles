@@ -1,0 +1,4 @@
+Diagnostics:
+  # Don't warn about variable naming as in most projects it's never consistent,
+  # and is very noisy.
+  Suppress: ['readability-identifier-naming']
