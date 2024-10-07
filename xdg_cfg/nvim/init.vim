@@ -54,7 +54,7 @@ Plug 'frasercrmck/opencl.vim', { 'for': 'opencl' }
 
 call plug#end()
 
-packadd termdebug
+packadd! termdebug
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         General Settings                                "
