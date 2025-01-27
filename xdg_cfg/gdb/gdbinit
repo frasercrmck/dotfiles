@@ -9,3 +9,6 @@ set debuginfod enabled off
 # Not very nice that there's an explicit path here.
 source ~/.config/gdb/int_to_enum.py
 source ~/.config/gdb/llvm_prettyprinters.py
+
+# Skip C++ library functions when stepping
+skip -rfu ^std::
