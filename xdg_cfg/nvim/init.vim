@@ -37,11 +37,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Language server stuff
 if has('nvim')
-  Plug 'neovim/nvim-lspconfig' " Easy ready-made LSP configs
-  Plug 'hrsh7th/cmp-nvim-lsp'  " For auto-completions
-  Plug 'hrsh7th/nvim-cmp'      " For auto-completions
-  Plug 'L3MON4D3/LuaSnip'      " For snippets (required by nvim-cmp)
-  Plug 'ojroques/nvim-osc52'   " For OSC-52 support (made obsolete by v0.10?)
+  Plug 'neovim/nvim-lspconfig'            " Easy ready-made LSP configs
+  Plug 'hrsh7th/cmp-nvim-lsp'             " For auto-completions
+  Plug 'hrsh7th/nvim-cmp'                 " For auto-completions
+  Plug 'L3MON4D3/LuaSnip'                 " For snippets (required by nvim-cmp)
+  Plug 'ojroques/nvim-osc52'              " For OSC-52 support (made obsolete by v0.10?)
+  Plug 'Kicamon/markdown-table-mode.nvim' " Metadata table formatting
 endif
 
 " Colour schemes:
@@ -342,6 +343,9 @@ if has('nvim')
 
     -- luasnip setup
     local luasnip = require 'luasnip'
+
+    -- markdown-table-mode setup
+    require('markdown-table-mode').setup()
 
     -- nvim-cmp setup
     local cmp = require 'cmp'
