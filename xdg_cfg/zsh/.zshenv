@@ -11,6 +11,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # I'll do my own compinit, thank you
 skip_global_compinit=1
 
