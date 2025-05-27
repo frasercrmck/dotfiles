@@ -32,6 +32,9 @@ include /etc/sway/config-vars.d/*
 # Notification daemon
 exec swaync
 
+# Toggle control centre
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
 # start a terminal
 bindsym $mod+Return exec $term
 
@@ -42,8 +45,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+Return exec pkill -SIGUSR1 swayidle
 
 # volume up/down
-bindsym $mod+Shift+n exec amixer set Master 2%- &
-bindsym $mod+Shift+m exec amixer set Master 2%+ &
+bindsym $mod+Shift+o exec amixer set Master 2%- &
+bindsym $mod+Shift+p exec amixer set Master 2%+ &
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec $menu
@@ -104,26 +107,45 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+u workspace prev
 bindsym $mod+i workspace next
 
-# This only really works at the office
-set $left_screen 'Dell Inc. DELL U2415 08DXD5CI3JLS'
-set $right_screen 'Dell Inc. DELL U2415 7MT0173805HS'
+set $office_left 'Dell Inc. DELL U2415 08DXD5CI3JLS'
+set $office_right 'Dell Inc. DELL U2415 7MT0173805HS'
 
-### Output configuration
-#
-output $left_screen pos 0 0
-output $right_screen pos 1920 0
+set $home_laptop 'AU Optronics 0x2B99 Unknown'
+set $home_left 'LG Electronics LG ULTRAGEAR 311NTUWCV166'
+set $home_right 'AOC AG273QS3R4 0x00000178'
 
-workspace 1  output $left_screen
-workspace 2  output $left_screen
-workspace 3  output $left_screen
-workspace 4  output $left_screen
-workspace 5  output $left_screen
+output {
+  $home_laptop disable
+  $home_left position 0 0 scale 1
+  $home_right position 2560 0 scale 1
 
-workspace 6  output $right_screen
-workspace 7  output $right_screen
-workspace 8  output $right_screen
-workspace 9  output $right_screen
-workspace 10 output $right_screen
+  $office_left position 0 0 scale 1
+  $office_right position 1920 0 scale 1
+}
+
+workspace 1  output $home_left
+workspace 2  output $home_left
+workspace 3  output $home_left
+workspace 4  output $home_left
+workspace 5  output $home_left
+
+workspace 6  output $home_right
+workspace 7  output $home_right
+workspace 8  output $home_right
+workspace 9  output $home_right
+workspace 10 output $home_right
+
+workspace 1  output $office_left
+workspace 2  output $office_left
+workspace 3  output $office_left
+workspace 4  output $office_left
+workspace 5  output $office_left
+
+workspace 6  output $office_right
+workspace 7  output $office_right
+workspace 8  output $office_right
+workspace 9  output $office_right
+workspace 10 output $office_right
 
 # switch to workspace
 bindsym $mod+1 workspace 1
