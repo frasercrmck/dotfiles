@@ -1,3 +1,21 @@
+[log]
+	follow = true
+[init]
+        defaultBranch = main
+[diff]
+        algorithm = histogram
+        mnemonicPrefix = true
+        renames = true
+[fetch]
+        all = true
+[branch]
+        sort = -committerdate
+[column]
+        ui = auto
+[tag]
+        sort = version:refname
+[help]
+        autocorrect = prompt
 [color]
   ui = auto
 [color "branch"]
