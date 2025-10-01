@@ -32,6 +32,9 @@ include /etc/sway/config-vars.d/*
 # Notification daemon
 exec swaync
 
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
 # Toggle control centre
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
