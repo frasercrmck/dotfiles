@@ -332,14 +332,16 @@ if has('nvim')
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require 'lspconfig'
 
-    lspconfig.clangd.setup {
+    vim.lsp.config("clangd", {
       cmd = { "clangd", "--completion-style=detailed" },
       capabilities = capabilities,
-    }
+    })
 
-    lspconfig.gdscript.setup {
+    vim.lsp.config("gdscript", {
       capabilities = capabilities,
-    }
+    })
+
+    vim.lsp.enable({"clangd", "gdscript"})
 
     -- luasnip setup
     local luasnip = require 'luasnip'
