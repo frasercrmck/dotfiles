@@ -180,6 +180,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Auto-start and auto-assignment
 exec firefox
 exec evolution
+exec nm-applet --indicator
 
 assign [app_id="evolution"] → 9
 assign [app_id="firefox"]   → 10
