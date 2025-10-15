@@ -27,8 +27,7 @@ include /etc/sway/config-vars.d/*
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
-
+font pango:DejaVu Sans Mono 12
 
 exec ~/.config/sway/scripts/environment.sh
 
