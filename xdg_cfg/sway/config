@@ -191,6 +191,12 @@ input * {
   xkb_layout "gb"
 }
 
+input "type:touchpad" {
+  dwt enabled
+  tap enabled
+  middle_emulation enabled
+}
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
