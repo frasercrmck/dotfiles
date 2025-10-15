@@ -1,0 +1,2 @@
+# The default timeout is 0, i.e., never
+default-timeout=10000

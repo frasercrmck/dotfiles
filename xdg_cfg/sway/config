@@ -29,13 +29,14 @@ include /etc/sway/config-vars.d/*
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
-# Notification daemon
-exec swaync
 
 exec ~/.config/sway/scripts/environment.sh
 
-# Toggle control centre
-bindsym $mod+Shift+n exec swaync-client -t -sw
+# Uncomment if swaync is available
+# # Notification daemon
+# # exec swaync
+# # Toggle control centre
+# # bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # start a terminal
 bindsym $mod+Return exec $term
