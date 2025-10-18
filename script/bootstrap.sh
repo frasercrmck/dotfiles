@@ -7,22 +7,7 @@ DOTFILES_ROOT=$(pwd -P)
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
-info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
-}
-
-user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
-}
-
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  exit
-}
+source "$(dirname "$0")"/utils.sh
 
 link_file () {
   local src=$1 dst=$2
@@ -127,16 +112,8 @@ install_dotfiles () {
 }
 
 install_fonts () {
-  user "Install fonts? [y]es, [n]o"
-  read -n 1 action
-
-  case "${action}" in
-    y )
-      ;;
-    * )
-      return
-      ;;
-  esac
+  prompt "Install fonts?"
+  [ "$?" -eq "0" ] && info 'skipping fonts' && return
 
   info 'installing fonts'
 
