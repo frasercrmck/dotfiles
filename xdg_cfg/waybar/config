@@ -12,6 +12,18 @@
         "custom/power"
     ],
 
+    "sway/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "",      /* terminal */
+            "10": "󰈹",     /* firefox */
+            "urgent": "",
+            "active": "",
+        },
+        "sort-by-number": true
+    },
+
     "sway/window": {
         "max-length": 50,
         "on-scroll-up": "swaymsg workspace prev_on_output",

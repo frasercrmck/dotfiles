@@ -1,23 +1,32 @@
-/*
- ********************************************
- *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
- *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
- *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
- *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
- *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
- ********************************************
- */
+@define-color background #24273a;
+@define-color foreground #cad3f5;
+
+@define-color regular1 #ed8796;
+@define-color regular2 #a6da95;
+@define-color regular3 #eed49f;
+@define-color regular4 #8aadf4;
+@define-color regular5 #f5bde6;
+@define-color regular6 #8bd5ca;
+@define-color regular7 #b8c0e0;
+
+@define-color bright1 #ed8796; /* red */
+@define-color bright2 #a6da95; /* green */
+@define-color bright3 #eed49f; /* yellow */
+@define-color bright4 #8aadf4; /* blue */
+@define-color bright5 #f5bde6; /* pink */
+@define-color bright6 #8bd5ca; /* teal */
+@define-color bright7 #a5adcb; /* Subtext 0 */
 
 * {
     border: none;
     border-radius: 0;
-    font-family: Nerd Font Hack, sans-serif;
+    font-family: Fira Code Nerd, sans-serif;
     font-size: 14px;
     min-height: 18px;
 }
 
 window#waybar {
-    background: transparent;
+    background: shade(@background, 1.25);
 }
 
 window#waybar.hidden {
@@ -31,8 +40,8 @@ window#waybar.hidden {
     padding-right: 16px;
     border-radius: 26px;
     transition: none;
-    color: #f8f8f2;
-    background: #282a36;
+    color: @foreground;
+    background: @background;
 }
 
 window#waybar.termite #window,
@@ -48,27 +57,36 @@ window#waybar.PCSX2 #window {
     margin-left: 12px;
     margin-bottom: 4px;
     border-radius: 26px;
-    background: #282a36;
+    background: @background;
     transition: none;
 }
 
 #workspaces button {
     transition: none;
-    color: #f8f8f2;
+    color: @foreground;
     background: transparent;
     font-size: 16px;
 }
 
 #workspaces button.focused {
-    color: #9aedfe;
+    color: @bright2;
+}
+
+#workspaces button.urgent {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: @background;
+    background: @bright1
 }
 
 #workspaces button:hover {
     transition: none;
     box-shadow: inherit;
     text-shadow: inherit;
-    color: #ff79c6;
+    color: @regular1;
 }
+
 
 #idle_inhibitor {
     margin-top: 4px;
@@ -78,8 +96,8 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #4d4d4d;
-    background: #bd93f9;
+    color: @background;
+    background: @regular1;
 }
 
 #tray {
@@ -90,8 +108,8 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #4d4d4d;
-    background: #bd93f9;
+    color: @background;
+    background: @regular2;
 }
 
 #network {
@@ -102,8 +120,8 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #4d4d4d;
-    background: #bd93f9;
+    color: @background;
+    background: @regular3;
 }
 
 #battery {
@@ -114,14 +132,14 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #4d4d4d;
-    background: #f1fa8c;
+    color: @background;
+    background: @regular4;
 
 }
 
 #battery.charging {
     color: white;
-    background-color: #26A65B;
+    background-color: @regular4;
 }
 
 #pulseaudio {
@@ -132,8 +150,8 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #4d4d4d;
-    background: #9aedfe;
+    color: @background;
+    background: @regular5;
 }
 
 #clock {
@@ -145,8 +163,8 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #f8f8f2;
-    background: #282a36;
+    color: @background;
+    background: @regular6;
 }
 
 #custom-power {
@@ -158,6 +176,6 @@ window#waybar.PCSX2 #window {
     margin-bottom: 4px;
     border-radius: 26px;
     transition: none;
-    color: #f8f8f2;
-    background: #282a36;
+    color: @foreground;
+    background: @background;
 }
