@@ -16,7 +16,7 @@ set $term foot
 # My lock script
 set $lock .config/sway/scripts/swaylock.sh
 # My application launcher
-set $menu j4-dmenu-desktop --dmenu="bemenu -i" | xargs swaymsg exec --
+set $menu wmenu-run
 
 include /etc/sway/config-vars.d/*
 

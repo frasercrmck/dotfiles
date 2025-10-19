@@ -21,7 +21,7 @@ install_sway () {
   install_pack sway swaylock swayidle swaybg
 
   # Things that my sway config uses
-  install_pack bemenu waybar j4-dmenu-desktop \
+  install_pack wmenu waybar j4-dmenu-desktop \
     grim slurp libnotify-bin mako-notifier \
     brightnessctl pulseaudio-utils xclip wl-clipboard
 
