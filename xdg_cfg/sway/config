@@ -119,8 +119,6 @@ set $home_left 'Goldstar Company Ltd LG ULTRAGEAR 311NTUWCV166'
 set $home_right 'Unknown AG273QS3R4 0x00000178'
 
 output {
-  $home_laptop disable
-  $home_laptop_system76 disable
   $home_left position 0 0 scale 1
   $home_right position 2560 0 scale 1
 
