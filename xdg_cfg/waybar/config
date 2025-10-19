@@ -1,6 +1,6 @@
 {
     "position": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode" ],
+    "modules-left": ["sway/workspaces", "sway/mode", "mpris" ],
     "modules-center": ["sway/window"],
     "modules-right": [
         "idle_inhibitor",
@@ -83,5 +83,14 @@
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
         }
-    }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "dynamic-order" : ["title", "artist", "album"],
+        "status-icons": {
+            "paused": "⏸"
+        },
+    },
 }

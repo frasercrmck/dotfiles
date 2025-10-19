@@ -23,6 +23,8 @@
     font-family: Fira Code Nerd, sans-serif;
     font-size: 14px;
     min-height: 18px;
+    color: @foreground;
+    background: @background;
 }
 
 window#waybar {
@@ -178,4 +180,22 @@ window#waybar.PCSX2 #window {
     transition: none;
     color: @foreground;
     background: @background;
+}
+
+#mpris {
+    margin-top: 4px;
+    margin-left: 8px;
+    margin-right: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 4px;
+    border-radius: 26px;
+    transition: none;
+    color: @background;
+    background: shade(@regular6, 0.6);
+}
+
+#mpris.paused {
+    color: @background;
+    background: shade(@regular7, 0.6);
 }
