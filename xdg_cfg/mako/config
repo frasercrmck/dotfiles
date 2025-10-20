@@ -1,2 +1,22 @@
+layer=overlay
+background-color=#333333
+
 # The default timeout is 0, i.e., never
 default-timeout=10000
+
+# Text
+format=<span font="Fira Code Nerd Font 14" line_height=".01" rise="5pt" color="#E8E8FC">%s</span>\n%b
+text-alignment=center
+
+# Borders
+border-size=5
+border-radius=2
+border-color=#454555
+
+# Dimensions
+width=250
+height=200
+padding=20, 5, 20
+
+# Icons
+icons=1
