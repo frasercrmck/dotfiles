@@ -183,6 +183,7 @@ exec nm-applet --indicator
 # Auto-start a tmux session
 exec $term --app-id "tmux-ftop" tmux new -A ftop
 
+assign [class="zoom"] → 3
 assign [app_id="evolution"] → 9
 assign [app_id="firefox"]   → 10
 assign [app_id="tmux-ftop"]   → 1

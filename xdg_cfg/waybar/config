@@ -17,9 +17,10 @@
         "on-click": "activate",
         "format-icons": {
             "1": "",      /* terminal */
+            "3": "󰒯",      /* zoom (yeah I know that's Skype) */
             "10": "󰈹",     /* firefox */
             "urgent": "",
-            "active": "",
+            "active": ""
         },
         "sort-by-number": true
     },
