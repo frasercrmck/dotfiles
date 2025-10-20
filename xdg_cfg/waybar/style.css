@@ -68,25 +68,41 @@ window#waybar.PCSX2 #window {
     color: @foreground;
     background: transparent;
     font-size: 16px;
+
+    border: 1px;
+    border-radius: 26px;
+    border-color: @bright3;
+    border-style: hidden;
 }
 
 #workspaces button.focused {
-    color: @bright2;
-}
+    color: @transparent;
+    background: @transparent;
 
-#workspaces button.urgent {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    color: @background;
-    background: @bright1
+    border: 1px;
+    border-radius: 26px;
+    border-color: @bright3;
+    border-style: inset;
 }
 
 #workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    color: @regular1;
+    color: @transparent;
+    background: @transparent;
+
+    border: 1px;
+    border-radius: 26px;
+    border-color: @bright2;
+    border-style: inset;
+}
+
+#workspaces button.urgent {
+    color: @transparent;
+    background: @transparent;
+
+    border: 1px;
+    border-radius: 26px;
+    border-color: @bright1;
+    border-style: inset;
 }
 
 
