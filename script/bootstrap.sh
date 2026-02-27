@@ -84,7 +84,12 @@ link_file () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  local overwrite_all=false backup_all=true skip_all=false
+  is_not_tty=false
+  if ! [ -t 1 ]; then
+    is_not_tty=true
+  fi
+
+  local overwrite_all=$is_not_tty backup_all=false skip_all=false
 
   # Note this uses a POSIX extension (mindepth) to exclude the xdg_cfg directory itself.
   for src in $(find -H "${DOTFILES_ROOT}/home" -mindepth 1 -maxdepth 1)
