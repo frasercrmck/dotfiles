@@ -62,11 +62,15 @@ packadd! termdebug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " LOOK AND FEEL
-if has('nvim')
-  colorscheme catppuccin-macchiato
-else
-  colorscheme catppuccin_macchiato
-endif
+try
+  if has('nvim')
+    colorscheme catppuccin-macchiato
+  else
+    colorscheme catppuccin_macchiato
+  endif
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
 
 set gfn=Consolas:h10
 
