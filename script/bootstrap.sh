@@ -75,9 +75,9 @@ link_file () {
 
   if [ "${skip}" != "true" ]  # "false" or empty
   then
-    errs=$( ln -s "$1" "$2" 2>&1 )
+    errs=$( ln -s "$src" "$dst" 2>&1 )
     [ "$?" != "0" ] && fail "$errs"
-    success "linked $1 to $2"
+    success "linked $src to $dst"
   fi
 }
 
@@ -99,14 +99,16 @@ install_dotfiles () {
   # Note this uses a POSIX extension (mindepth) to exclude the xdg_cfg directory itself.
   for src in $(find -H "${DOTFILES_ROOT}/xdg_cfg" -mindepth 1 -maxdepth 1 -type d)
   do
-    dst="${XDG_CONFIG_HOME}/$(basename "${src%.*}")"
+    base="$(basename "${src}")"
+    dst="${XDG_CONFIG_HOME}/${base%.*}"
     link_file "${src}" "${dst}"
   done
 
   mkdir -p ${HOME}/.urxvt/ext
   for src in $(find -H "${DOTFILES_ROOT}/urxvt_scripts" -type f)
   do
-    dst="${HOME}/.urxvt/ext/$(basename "${src%.*}")"
+    base="$(basename "${src}")"
+    dst="${HOME}/.urxvt/ext/${base%.*}"
     link_file "${src}" "${dst}"
   done
 }
