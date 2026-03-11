@@ -114,9 +114,9 @@ set $office_right 'Dell Inc. DELL U2415 7MT0173805HS'
 set $office_curvy 'Goldstar Company Ltd LG ULTRAWIDE 311NTUWCV166'
 
 set $home_laptop 'AU Optronics 0x2B99 Unknown'
-set $home_laptop_system76 'Chimei Innolux Corporation 0x148A 0x00000000'
-set $home_left 'Goldstar Company Ltd LG ULTRAGEAR 311NTUWCV166'
-set $home_right 'Unknown AG273QS3R4 0x00000178'
+set $home_laptop_system76 'Chimei Innolux Corporation 0x148A Unknown'
+set $home_left 'LG Electronics LG ULTRAGEAR 311NTUWCV166'
+set $home_right 'AOC AG273QS3R4 0x00000178'
 
 output {
   $home_left position 0 0 scale 1
@@ -182,6 +182,10 @@ exec nm-applet --indicator
 
 # Auto-start a tmux session
 exec $term --app-id "tmux-ftop" tmux new -As ftop
+
+# Kanshi for dynamic output configuration
+exec kanshi
+exec_always kill -1 $(pidof kanshi)
 
 assign [class="zoom"] → 3
 assign [app_id="evolution"] → 9

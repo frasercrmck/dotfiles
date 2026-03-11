@@ -1,0 +1,18 @@
+# Default profile enabling eDP-1
+profile nomad {
+    output eDP-1 enable
+}
+
+# At home, disable laptop screen when screens connected
+profile home {
+    output eDP-1 disable
+    output 'LG Electronics LG ULTRAGEAR 311NTUWCV166' enable position 0,0 scale 1
+    output 'AOC AG273QS3R4 0x00000178' enable position 2560,0 scale 1
+}
+
+# Office 1
+profile office1 {
+    output eDP-1 enable position 0,1080 scale 1
+    output 'HP Inc. HP E24 G4 CN422236D1' enable position 0,0 scale 1
+    exec swaymsg workspace 10, workspace 10 output '"HP Inc. HP E24 G4 CN422236D1"'
+}
