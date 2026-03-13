@@ -181,7 +181,7 @@ exec evolution
 exec nm-applet --indicator
 
 # Auto-start a tmux session
-exec $term --app-id "tmux-ftop" tmux new -A ftop
+exec $term --app-id "tmux-ftop" tmux new -As ftop
 
 assign [class="zoom"] → 3
 assign [app_id="evolution"] → 9
