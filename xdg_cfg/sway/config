@@ -32,10 +32,10 @@ font pango:DejaVu Sans Mono 12
 exec ~/.config/sway/scripts/environment.sh
 
 # Uncomment if swaync is available
-# # Notification daemon
-# # exec swaync
-# # Toggle control centre
-# # bindsym $mod+Shift+n exec swaync-client -t -sw
+# Notification daemon
+exec swaync
+# Toggle control centre
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # start a terminal
 bindsym $mod+Return exec $term

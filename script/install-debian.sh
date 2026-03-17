@@ -22,7 +22,7 @@ install_sway () {
 
   # Things that my sway config uses
   install_pack bemenu wmenu waybar j4-dmenu-desktop \
-    kanshi grim slurp libnotify-bin mako-notifier \
+    kanshi grim slurp swaync libnotify-bin mako-notifier \
     brightnessctl playerctl pulseaudio-utils xclip wl-clipboard
 
   # Necessary for screen casting on wayland
