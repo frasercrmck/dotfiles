@@ -8,14 +8,14 @@ main() {
   tag=""
   case "$command" in
   commits)
-    # https://www.github.com/<user>/<repo>/commit/$commit
-    pattern="[a-f0-9]\{11\}"
+    # gitgrabber.commitsurl - https://www.github.com/<user>/<repo>/commit/$commit
+    pattern="\b[a-f0-9]\{5,40\}\b"
     filter="$pattern"
     placeholder=commit
     tag=commitsurl
     ;;
   issues)
-    # https://www.github.com/<user>/<repo>/issues/$issue
+    # gitgrabber.issuesurl - https://www.github.com/<user>/<repo>/issues/$issue
     pattern="#[0-9]\+"
     filter="[0-9]\+"
     placeholder=issue
