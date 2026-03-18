@@ -33,3 +33,5 @@
   untracked = cyan
 [user]
   name = Fraser Cormack
+[rebase]
+  autoStash = true
