@@ -183,9 +183,8 @@ exec nm-applet --indicator
 # Auto-start a tmux session
 exec $term --app-id "tmux-ftop" tmux new -As ftop
 
-# Kanshi for dynamic output configuration
-exec kanshi
-exec_always kill -1 $(pidof kanshi)
+# Sway session target
+exec_always systemctl --user start sway-session.target
 
 assign [class="zoom"] → 3
 assign [app_id="evolution"] → 9
