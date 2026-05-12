@@ -105,7 +105,10 @@ install_dotfiles () {
   for src in $(find -H "${DOTFILES_ROOT}/xdg_cfg" -mindepth 1 -maxdepth 1 -type d)
   do
     base="$(basename "${src}")"
-    dst="${XDG_CONFIG_HOME}/${base%.*}"
+    case "${base}" in
+      *.d) dst="${XDG_CONFIG_HOME}/${base}"    ;;    # keep .d suffix
+      *)   dst="${XDG_CONFIG_HOME}/${base%.*}" ;;    # strip other extensions
+    esac
     link_file "${src}" "${dst}"
   done
 
