@@ -166,3 +166,16 @@ else
 fi
 
 install_fonts
+
+systemctl --user enable --now ssh-agent.service
+
+set_up_sway_systemd () {
+  prompt "Set up sway systemd?"
+  [ "$?" -eq "0" ] && info 'skipping sway setup' && return
+
+  systemctl --user add-wants sway-session.target waybar.service
+  systemctl --user add-wants sway-session.target kanshi.service
+  success 'added "Wants" to sway-session from waybar & kanshi'
+}
+
+set_up_sway_systemd

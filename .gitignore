@@ -15,3 +15,7 @@ xdg_cfg/tmux/plugins
 
 # zsh plugins ,etc
 xdg_cfg/zsh/plugins
+
+# systemd stuff
+xdg_cfg/systemd/user/default.target.wants/
+xdg_cfg/systemd/user/sway-session.target.wants/

@@ -184,7 +184,9 @@ exec nm-applet --indicator
 exec $term --app-id "tmux-ftop" tmux new -As ftop
 
 # Sway session target
+# Note - waybar is started as a 'Want' of the sway-session service
 exec_always systemctl --user start sway-session.target
+exec_always systemctl --user restart kanshi.service
 
 assign [class="zoom"] → 3
 assign [app_id="evolution"] → 9
@@ -255,9 +257,5 @@ exec swayidle -w \
 # class                   border  backgr. text    indicator child_border
 #client.focused [default] #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused            #729fcf #3465a4 #ffffff #fcaf3e   #285577
-
-#### Status Bar:
-#
-exec /usr/local/bin/waybar
 
 include /etc/sway/config.d/*
