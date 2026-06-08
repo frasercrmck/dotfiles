@@ -41,6 +41,10 @@ install_dev_tools () {
   # Vim/Neovim use these for clipboard integrations
   prompt_and_install xclip wl-clipboard
 
+  prompt_and_install bat
+  mkdir -p ~/.local/bin
+  ln -s $(which batcat) ~/.local/bin/bat
+
   info "Installed dev tools"
 }
 
