@@ -34,6 +34,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Language server stuff
 if has('nvim')
@@ -284,6 +285,9 @@ nnoremap <leader>o :exec ':FZF '.Fzfdir()<CR>
 " interferes with fzf's ability to read the escape key. See
 " https://github.com/junegunn/fzf/issues/1393#issuecomment-426576577
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
+
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['right,50%', 'ctrl-/']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
