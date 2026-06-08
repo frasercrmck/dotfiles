@@ -1,7 +1,9 @@
 # FZF bindings
 
 # Load keybindings
-if [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]; then
+if (( $+commands[fzf] )) && fzf --zsh &>/dev/null; then
+  source <(fzf --zsh)
+elif [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]; then
   source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 elif [ -d "/usr/share/doc/fzf/examples" ]; then
   for config in /usr/share/doc/fzf/examples/*.zsh; do
