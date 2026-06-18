@@ -21,7 +21,8 @@ export FZF_CTRL_T_OPTS="--height 60% \
   --layout reverse \
   --prompt '∷ ' \
   --pointer ▶ \
-  --marker ⇒"
+  --marker ⇒ \
+  --preview 'bat -n --color=always {}'"
 
 # Reverse the Ctrl-R view, add preview toggle with '?'
 export FZF_CTRL_R_OPTS="--reverse \
