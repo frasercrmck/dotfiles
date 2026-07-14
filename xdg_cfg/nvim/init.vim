@@ -25,7 +25,6 @@ endif
 call plug#begin(g:editor_root."/bundle")
 
 " Plugins
-Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'frasercrmck/swizzle.vim'
@@ -202,20 +201,6 @@ vnoremap > >gv
 " Highlight the last-inserted text
 nmap gV `[v`]
 
-" Edit vimrc or init.vim: <Leader>ev
-function! OpenMYVIMRC()
-  if !empty(expand('%:t'))
-    :tabnew
-  endif
-  :e $MYVIMRC
-endfunction
-
-nnoremap <silent> <Leader>ev :<C-U>call OpenMYVIMRC()<CR>
-
-" Start opening the current file with no extension.
-" Useful for going to header files quickly.
-nnoremap <Leader>ef :e %:r.<Tab>
-
 " Escape search highlighing with <Leader><Leader>
 nnoremap <silent> <Leader><Leader> :noh<Return><Esc>
 
@@ -254,20 +239,6 @@ if has("nvim")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              ack.vim                                    "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ackprg = 'rg --vimgrep --smart-case'
-
-" Any empty search will search for the word under the cursor
-let g:ack_use_cword_for_empty_search = 1
-
-" Search for the word under the cursor, but wait for optional directory input
-nnoremap <leader>/ :Ack! <C-R>=expand('<cword>')<CR><Space>
-
-cnoreabbrev Ack Ack!
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              fzf.vim                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -288,6 +259,12 @@ autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['right,50%', 'ctrl-/']
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>e :GFiles<CR>
+
+" Search for the word under the cursor, but wait for optional directory input
+nnoremap <leader>/ :Rg <C-R>=expand('<cword>')<CR><Space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              GUI Options                                "
