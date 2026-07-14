@@ -15,6 +15,7 @@ xdg_cfg/tmux/plugins
 
 # zsh plugins ,etc
 xdg_cfg/zsh/plugins
+xdg_cfg/zsh/.zsh_sessions
 
 # systemd stuff
 xdg_cfg/systemd/user/default.target.wants/
